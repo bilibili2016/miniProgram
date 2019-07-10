@@ -7,6 +7,7 @@
                 <image src="{{item.picture}}" />
                 <text class="people">{{item.total_num}}</text>
                 <text class="text">人正在参与此活动</text>
+                
             </view>
             <view class="time">
                 <van-icon size="32rpx" class='icon' name="clock-o" />
