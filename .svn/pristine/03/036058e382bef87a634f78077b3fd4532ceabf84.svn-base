@@ -1,0 +1,17 @@
+/* miniprogram/pages/user/beTeacher/introduction/introduction.wxss */
+.intro {
+  height: 100%;
+  padding: 32rpx 32rpx;
+  /* background-color: #F5F5F5; */
+
+}
+
+.intro .con {
+  width: 685rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #F5F5F5;
+
+}

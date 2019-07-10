@@ -1,0 +1,57 @@
+<view class="user">
+    <view class="top">
+        <view class="info" wx:if="{{isLogin}}">
+            <view class="headImg">
+                <image src="{{userInfo.head_img}}" mode="cover"></image>
+            </view>
+            <view class="text">
+                <text wx:if="{{userInfo.real_name}}">{{userInfo.real_name}}</text>
+                <text wx:else>{{userInfo.nick_name}}</text>
+            </view>
+        </view>
+        <button class="info" wx:else open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+            <view class="headImg">
+                <image src="https://h5-image.1911edu.com/mini-myIcon3.png"></image>
+            </view>
+            <view class="text">登录/注册</view>
+        </button>
+        <view class="vip" wx:if="{{userInfo.user_status==1}}">
+            <view class="vipInner">
+                <text class="desc">会员服务</text>
+                <text class="num">剩余咨询次数：2次</text>
+                <text class="btn">购买</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{userInfo.user_status==1}}" class="bottom">
+        <view class="list">
+            <view class="item {{item.isMargin?'marginBox':''}}" wx:for="{{itemList}}" wx:key="{{index}}" data-url="{{item.url}}" bindtap="handleLink">
+                <view class="itemCon">
+                    <image class='iconUrl' src="{{item.iconUrl}}"></image>
+                    <!-- <van-icon class="leftIcon" name="notes-o" /> -->
+                    <text class="inner">{{item.title}}</text>
+                    <view class="rightIcon">
+                        <text wx:if="{{item.alertNum}}" class="alert">{{item.alertNum}}</text>
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="btn" bindtap="beTeacher">成为专家</view>
+    </view>
+    <view wx:else class="bottom teacherBottom">
+        <view class="list">
+            <view class="item {{item.isMargin?'marginBox':''}}" wx:for="{{teacherList}}" wx:key="{{index}}" data-url="{{item.url}}" bindtap="handleLink">
+                <view class="itemCon">
+                    <image class='iconUrl' src="{{item.iconUrl}}"></image>
+                    <text class="inner">{{item.title}}</text>
+                    <view class="rightIcon">
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="btn" data-id="1" bindtap="toggleUser">切换为用户</view>
+    </view>
+</view>
+<tabBar wx:if="{{true}}"></tabBar>

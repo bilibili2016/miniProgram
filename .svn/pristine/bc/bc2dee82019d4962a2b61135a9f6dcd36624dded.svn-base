@@ -1,0 +1,43 @@
+<!--pages/home/activity/home/home.wxml-->
+<view class="container">
+   <view class="flex-wrp">
+    <view class="flex-item">小学生</view>
+    <view class="flex-item">中学生</view>
+    <view class="flex-item checked">高中生</view>
+    <view class="flex-item">大学生</view>
+  </view>
+  <view class="banner">
+    <image class="bannerImg" src='https://h5-image.1911edu.com/mini-banner.png' mode='widthFix'></image>
+  </view>
+  <view class="content">
+    <view class='top'>
+      <view class="left"><image src='https://h5-image.1911edu.com/mini-icon2.png'></image>一对多经验分享</view>
+      <view class="right"><image src='https://h5-image.1911edu.com/mini-icon1.png'></image>一对一答疑</view>
+      <button bindtap='handleClick'>免费领取，立即抢</button>
+    </view>
+    <view class='inner'>
+      <view class='text'>寒暑假，是拉开孩子差距的关键时期  新学期，让孩子成为领跑同班同学的尖子</view>
+      <view class='teach'>
+        <text class='title'>谁来教</text>
+        <view class='desc'>优秀学霸实力保障</view>
+        <view class='desc'>清华学生理论实践经验丰富</view>
+        <image class='teacher' src='https://h5-image.1911edu.com/mini-indexBG.png' mode='widthFix'></image>
+      </view>
+      <view class="question">
+        <text class='title'>你关心的问题</text>
+        <view class='item'>
+          <view class="itemIndex">1、入学流程</view>
+          <view class='itemText'>啦十分考究的，拉萨孔家店官，方的感觉冰冷。的大山里的风景大师，浪费空间萨芬啊收到。了罚款决定，书范德萨了科技大，厦飞拉萨的空间菲，拉斯发撒法丽达，刷卡积分阿斯蒂芬。 </view>
+        </view>
+        <view class='item'>
+          <view class="itemIndex">2、怎么上课</view>
+          <view class='itemText'>啦十分考究的，拉萨孔家店官，方的感觉冰冷。的大山里的风景大师，浪费空间萨芬啊收到。了罚款决定，书范德萨了科技大，厦飞拉萨的空间菲，拉斯发撒法丽达，刷卡积分阿斯蒂芬。 </view>
+        </view>
+        <view class='item'>
+          <view class="itemIndex">3、遇到问题怎么解决</view>
+          <view class='itemText'>通过“学堂教务”可以找到客服中心或直接拨打客服电话 XXXXXXXXXX</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,58 @@
+<skeleton selector="skeleton" loading="spin" bgcolor="#FFF" wx:if="{{showSkeleton}}"></skeleton>
+<view class="home skeleton" wx:if="{{isUser}}">
+    <view class="top">
+        <button class="msg" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" hover-class="none">
+            <image class="message skeleton-radius" src="https://h5-image.1911edu.com/mini-messageIcon.png"></image>
+        </button>
+        <!-- <text class="red"></text> -->
+        <view class="search skeleton-rect" bindtap="handleSearch">
+            <image class="searchIcon" src="https://h5-image.1911edu.com/miniPrograme-search.png" />
+            搜索教师
+        </view>
+    </view>
+    <swiper indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay="true" interval="3000" duration="500" circular="true" class="swiper skeleton-rect">
+        <block wx:for="{{bannerList}}" wx:key="{{index}}">
+            <swiper-item bindtap="handleActive" data-type="{{item.jump_type}}" data-id="{{item.jump_id}}">
+                <image src="{{item.picture}}" class="slideImage" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="recommend">
+        <view class="title skeleton-rect">为您推荐</view>
+        <view class="teacherList">
+            <view class="teacher" wx:for="{{teacherList}}" wx:key="{{index}}" data-id="{{item.id}}" data-url="/pages/home/professor/detail/detail" bindtap="handleLink">
+                <view class="info">
+                    <image class="skeleton-radius" src="{{item.head_img}}" />
+                    <view class="name skeleton-rect">
+                        <view class="teacherName">{{item.teacher_name}}</view>
+                        <view>{{item.graduate}}</view>
+                    </view>
+                </view>
+                <view class="buttonList">
+                    <text wx:for="{{item.tagList}}" wx:key="{{index}}" wx:for-item="tag">
+                        {{tag.tag_name}}
+                    </text>
+                </view>
+                <view class="tag" wx:for="{{item.questionList}}" wx:key="{{index}}" wx:for-item="question">
+                    <image src="{{teacherIcon}}" />
+                    <text class="icon">{{question.title}}</text>
+                </view>
+                <view class="order clearfix">
+                    <view class="fl">
+                        <text>指导过</text>
+                        <text class="people">{{item.bespokeNum}}</text>
+                        <text>人</text>
+                    </view>
+                    <view class="fr" wx:if="{{item.is_meet}}">约TA</view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{teacherParams.total>teacherList.length}}" class="loadMore">加载更多...</view>
+        <view wx:if="{{teacherParams.total<=teacherList.length&&teacherList.length!=0}}" class="loadMore loadAll">
+            我是有底线的
+        </view>
+    </view>
+</view>
+<teacherInfo wx:else></teacherInfo>
+<register wx:if="{{ showRegister }}" bind:close="onClose" bind:success="onSuccess"></register>
+<tabBar wx:if="{{true}}"></tabBar>

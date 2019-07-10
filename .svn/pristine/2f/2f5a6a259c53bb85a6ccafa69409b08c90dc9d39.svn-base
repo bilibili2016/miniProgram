@@ -1,0 +1,113 @@
+// components/common/noData/noData.js
+const app = getApp();
+import {
+    message
+} from "../../../utils/common";
+Component({
+    /**
+     * 组件的属性列表
+     */
+    properties: {},
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        showRegister: false,
+        active: 0,
+        path: '',
+        list: [{
+                // "pagePath": "/pages/user/beTeacher/index/index",
+                "pagePath": "/pages/home/index/index",
+                "text": "首页",
+                "iconPath": "../../../images/mini-home.png",
+                "selectedIconPath": "../../../images/mini-homeChecked.png"
+            },
+            {
+                "pagePath": "/pages/consult/index/index",
+                "text": "在线咨询",
+                "iconPath": "../../../images/mini-consult.png",
+                "selectedIconPath": "../../../images/mini-consultChecked.png"
+            },
+            {
+                "pagePath": "/pages/user/profile/profile",
+                "text": "我的",
+                "iconPath": "../../../images/mini-my.png",
+                "selectedIconPath": "../../../images/mini-myChecked.png"
+            }
+        ]
+    },
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        //
+        handleLink(e) {
+            if (e.currentTarget.dataset.index == 0) {
+                wx.reLaunch({
+                    url: e.currentTarget.dataset.url
+                })
+            } else {
+                this.setData({
+                    path: e.currentTarget.dataset.url
+                })
+            }
+        },
+        bindGetUserInfo(e) {
+            var that = this
+            //如果用户拒绝授权走此处
+            if (e.detail.errMsg == 'getUserInfo:fail auth deny') {
+                console.log('用户拒绝了授权，无法访问小程序');
+                // this.setData({
+                //     showRegister: true
+                // })
+            }
+            //如果用户接受授权走此处
+            if (e.detail.errMsg == 'getUserInfo:ok') {
+                // 登录获取token
+                app.authorize().then(function (res) {
+                    // 获取到token 绑定了微信 
+                    // 1有token登陆了；2 有unionid没有token，需要绑定手机号；false 错误 停止
+                    if (res.status == 1) {
+                        wx.reLaunch({
+                            url: that.data.path
+                        })
+                        app.getUserDetail()
+                    } else if (res.status == 2) {
+                        that.setData({
+                            showRegister: true
+                        })
+                    } else {
+                        that.setData({
+                            showRegister: false
+                        })
+                        message(res.msg)
+                    }
+                })
+            }
+        },
+        onClose() {
+            this.setData({
+                showRegister: false
+            })
+        },
+    },
+    ready: function () {
+        var url = getCurrentPages()[0].route
+        if (url == 'pages/home/index/index') {
+            this.setData({
+                active: 1
+            })
+        }
+        if (url == 'pages/consult/index/index') {
+            this.setData({
+                active: 2
+            })
+        }
+        if (url == 'pages/user/profile/profile') {
+            this.setData({
+                active: 3
+            })
+        }
+    },
+})

@@ -1,0 +1,143 @@
+// 接口
+const req = require('../../../req/index')
+import {
+    message,
+    timestampToTime
+} from '../../../utils/common'
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        teacherIcon: 'https://h5-image.1911edu.com/miniProgram-icon1.png',
+        identity: '1', //用户访问类型 1 学生 2 老师
+        page: 1,
+        limit: 20,
+        noData: {
+            isShowTitle: false,
+            title: '专家咨询',
+            imgUrl: 'https://h5-image.1911edu.com/mini-noActivity.png',
+            dataDesc: '您还没有咨询记录~',
+            btnText: '去首页看看',
+            btnUrl: '/pages/home/index/index',
+            width: '410rpx'
+        },
+        isTeacher: "1", //1是老师 2是学生
+        teacherList: [],
+    },
+    goInfo: function (e) {
+        // 判断当前用户是否是教师
+        if (this.data.isTeacher) {
+            e.currentTarget.dataset.id
+            wx.navigateTo({
+                url: `/pages/consult/chat/chat?receiveId=${e.currentTarget.dataset.id}`
+            })
+        } else {
+            // 用户身份 是否还有咨询次数
+            if (this.data.isChat > 0) {
+                e.currentTarget.dataset.id
+                wx.navigateTo({
+                    url: `/pages/consult/chat/chat?receiveId=${e.currentTarget.dataset.id}`
+                })
+            } else {
+                message('咨询次数已用尽，请先去购买吧！')
+            }
+        }
+    },
+    getConsultationList: function () {
+        req.consult.getConsultationList({
+                page: this.data.page,
+                limit: this.data.limit,
+                type: this.data.identity
+            })
+            .then(res => {
+                if (res.status == 0) {
+                    if (res.data) {
+                        for (let i = 0; i < res.data.length; i++) {
+                            res.data[i].send_time = timestampToTime(res.data[i].send_time)
+                        }
+                        this.setData({
+                            teacherList: this.data.teacherList.concat(res.data)
+                        })
+                        // } else if (res.status == 100008||res.status == 100007) {
+                        //     message(res.msg)
+                        //     wx.clearStorage()
+                    }
+                } else {
+                    message(res.msg)
+                }
+            })
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.getConsultationList()
+        this.setData({
+            isTeacher: wx.getStorageSync('userInfo').user_status == '2' ? true : false,
+            isChat: Number(wx.getStorageSync('userInfo').consult_time)
+        })
+        let title
+        if (this.data.isTeacher) {
+            title = '在线咨询'
+        } else {
+            title = '专家咨询'
+        }
+        wx.setNavigationBarTitle({
+            title: title
+        })
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+        this.setData({
+            page: this.data.page + 1
+        })
+        this.getConsultationList()
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
+})

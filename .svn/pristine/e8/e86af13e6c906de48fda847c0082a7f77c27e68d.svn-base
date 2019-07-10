@@ -1,0 +1,71 @@
+<view class="appointment">
+    <view class="teacher">
+        <image class="headImg" src="{{teacherInfo.head_img}}" />
+        <view class="name">
+            <view>{{teacherInfo.teacher_name}}</view>
+            <view class="duration">{{teacherInfo.graduate}}</view>
+        </view>
+    </view>
+    <view class="progress">
+        <view class="point {{index==0?'active':''}}" wx:for="{{steps}}" wx:key="{{index}}"></view>
+    </view>
+    <view class="listWrap">
+        <view class="list" wx:for="{{steps}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+    <view class="date">
+        <!-- 日历面板 -->
+        <calendar class="calendar" circle_show="{{false}}" header-style='header-style' speciallist="{{speciallist}}" closelaststyle="{{true}}" mystatus="{{mystatus}}" bindselectDate="dayClick" />
+        <!-- 时间段列表 -->
+        <view class="timeList clearfix">
+            <view wx:for="{{timeList}}" wx:key="index" class="{{item.select?'checked':''}}" data-id="{{item.id}}" data-index="{{index}}" bind:tap="bindCheck">
+                {{item.between_time}}
+            </view>
+        </view>
+    </view>
+    <view class="address">
+        <view class="section">
+            <text class="label">约谈城市</text>
+            <input value="{{city}}" bindinput="changeCity" disabled />
+            <view class="city">（目前仅支持北京市）</view>
+        </view>
+        <view class="section">
+            <text class="label">约谈话题</text>
+            <textarea placeholder="向专家描述一下咨询的具体内容，方便专家提前准备~" placeholder-style="color:#ADADAD;margin-top:20rpx;" maxlength="200" bindinput="changeTopic" disabled="{{!canSelect}}" />
+            <view class="length">{{length}}/200</view>
+        </view>
+        <view class="rules" bind:tap="bindShowTips">
+            <van-icon name="question" />
+            <view>线下邀约规则</view>
+        </view>
+    </view>
+    <view class="proce">
+        <view class="allPrice">
+            <text class="one">{{teacherInfo.price}}元×{{checkTimeIdList.length}}小时，</text>
+            <text class="two">总计：</text>
+            <text class="three">￥</text>
+            <text class="fore">{{teacherInfo.price*checkTimeIdList.length}}</text>
+        </view>
+        <view class="pay">专家确认后支付</view>
+    </view>
+    <view class="order" bind:tap="orderTeacher">立即预约</view>
+    <cover-view class="tips" hidden="{{!showTips}}">
+        <cover-view class="inner">
+            <cover-view>
+                <cover-view class="title">关于面对面约聊</cover-view>
+                <cover-view class="text">
+                    <cover-view class="line">1.预约成功后，会有专人致电为您安排相关事宜，请保持手机畅通；</cover-view>
+                    <cover-view class="line">2.请在话题描述中充分描述您所希望解决的问题，您的详细资料讲有助于专家提前准备；</cover-view>
+                </cover-view>
+            </cover-view>
+            <cover-view>
+                <cover-view class="title">支付与退款</cover-view>
+                <cover-view class="text">
+                    <cover-view class="line">1.您需要全款支付面谈费用；</cover-view>
+                    <cover-view class="line">2.在确认计划前您可随时取消；</cover-view>
+                    <cover-view class="line">3.确认支付完成后，您将无法取消。</cover-view>
+                </cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-image class="closeIcon" src="https://h5-image.1911edu.com/miniProgram-close.png" bind:tap="closeTips" />
+    </cover-view>
+</view>

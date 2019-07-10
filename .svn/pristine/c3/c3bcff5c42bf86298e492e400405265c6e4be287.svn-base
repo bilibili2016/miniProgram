@@ -1,0 +1,9 @@
+module.exports = {
+    message: function (text, type = 'none', time = 4000) {
+        wx.showToast({
+            title: text,
+            icon: type,
+            duration: time
+        })
+    }
+}

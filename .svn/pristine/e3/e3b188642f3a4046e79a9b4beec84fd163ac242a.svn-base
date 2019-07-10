@@ -1,0 +1,137 @@
+<view class="user">
+    <view class="bottom">
+        <view class="list">
+            <view class="item img" bindtap="uploadImg">
+                <view class="itemCon">
+                    <!-- <van-icon class="leftIcon" name="notes-o" /> -->
+                    <text class="inner">头像</text>
+                    <view class="rightIcon">
+                        <image class="headImg" src="{{userInfo.head_img?userInfo.head_img:'https://h5-image.1911edu.com/mini-myIcon3.png'}}"></image>
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+            </view>
+            <!-- <view class="item" data-url="" bindtap="handleLink">
+                <view class="itemCon">
+                    <text class="inner">学号</text>
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{userInfo.student_number}}</view>
+                        <view class="noIcon"></view>
+                    </view>
+                </view>
+            </view> -->
+            <view class="item" data-url="/pages/user/setUser/common/common?page=nickname&con={{userInfo.nick_name}}" bindtap="handleLink">
+                <view class="itemCon">
+                    <text class="inner">昵称</text>
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{userInfo.nick_name}}</view>
+                        <view>
+                            <van-icon class="icon" name="arrow" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="itemCon">
+                    <text class="inner">手机号</text>
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{userInfo.user_name}}</view>
+                        <!-- <view>
+              <van-icon class="icon" name="arrow" />
+            </view> -->
+                        <view class="noIcon"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="item" data-url="/pages/user/setUser/common/common?page=name&con={{userInfo.real_name}}" bindtap="handleLink">
+                <view class="itemCon">
+                    <text class="inner">真实姓名</text>
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{userInfo.real_name}}</view>
+                        <view>
+                            <van-icon class="icon" name="arrow" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="item selectorItem">
+                <view class="itemCon">
+                    <text class="inner">性别</text>
+                </view>
+                <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{sexArr}}">
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{sexArr[index]}}</view>
+                        <view>
+                            <van-icon class="icon" name="arrow" />
+                        </view>
+                    </view>
+                </picker>
+            </view>
+            <view class="item selectorItem">
+                <view class="itemCon">
+                    <text class="inner">出生日期</text>
+                </view>
+                <picker mode="date" value="{{userInfo.birthday}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{userInfo.birthday}}</view>
+                        <view>
+                            <van-icon class="icon" name="arrow" />
+                        </view>
+                    </view>
+                </picker>
+            </view>
+            <!-- <view class="item  selectorItem" data-url="" bindtap="handleLink">
+        <view class="itemCon">
+          <text class="inner">所在地区</text>
+        </view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" custom-item="{{customItem}}">
+          <view class="picker">
+            <view class="rightIcon">
+              <view class="rightInfo">
+                {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+                {{userInfo.province_name}}{{userInfo.city_name}}{{userInfo.area_name}}
+              </view>
+              <view>
+                <van-icon class="icon" name="arrow" />
+              </view>
+            </view>
+          </view>
+        </picker>
+      </view> -->
+            <!-- <view class="item" data-url="/pages/user/setUser/profession/profession" bindtap="handleLink">
+                <view class="itemCon">
+                    <text class="inner">职业</text>
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{userInfo.position_name}}</view>
+                        <view>
+                            <van-icon class="icon" name="arrow" />
+                        </view>
+                    </view>
+                </view>
+            </view> -->
+            <!-- <view class="item" data-url="/pages/user/setUser/common/common?page=email&con={{userInfo.email}}" bindtap="handleLink">
+                <view class="itemCon">
+                    <text class="inner">邮箱</text>
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{userInfo.email}}</view>
+                        <view>
+                            <van-icon class="icon" name="arrow" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="item" data-url="/pages/user/setUser/common/common?page=company&con={{userInfo.company_name}}" bindtap="handleLink">
+                <view class="itemCon">
+                    <text class="inner">单位</text>
+                    <view class="rightIcon">
+                        <view class="rightInfo">{{userInfo.company_name}}</view>
+                        <view>
+                            <van-icon class="icon" name="arrow" />
+                        </view>
+                    </view>
+                </view>
+            </view> -->
+        </view>
+        <view class="btn" bindtap="save">保存</view>
+    </view>
+</view>

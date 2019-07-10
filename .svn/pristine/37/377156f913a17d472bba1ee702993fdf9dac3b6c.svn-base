@@ -1,0 +1,102 @@
+<!-- miniprogram/pages/professor/detail/detail.wxml -->
+<scroll-view class="container" scroll-y="{{isScroll}}">
+  <view class="professorDetai">
+    <image class="bannerImg" src="{{detail.picture}}"></image>
+    <view class="info">
+      <view class="head">
+        <image class="headImg" src="{{detail.head_img}}"></image>
+      </view>
+      <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号</button> -->
+      <text class="name">{{detail.teacher_name}}</text>
+      <view class="desc">{{detail.graduate}}</view>
+      <view class="infoVideo">
+        <!-- 封面 -->
+        <view class="infoCover" wx:if="{{showPlayBtn}}">
+          <image src=""></image>
+        </view>
+        <!-- 播放按钮 -->
+        <view class="playBtn"   wx:if="{{showPlayBtn}}" bindtap="palyVideo">
+          <van-icon name="play-circle-o" />
+        </view>
+        <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+      </view>
+      <view class="numbers">
+        <view class="item">
+          <text class="num">932</text>
+          <text class="text">访问量</text>
+          <text class="line"></text>
+        </view>
+        <view class="item">
+          <text class="num">3208</text>
+          <text class="text">关注量</text>
+          <text class="line"></text>
+        </view>
+        <view class="item">
+          <text class="num">932</text>
+          <text class="text">咨询数</text>
+        </view>
+      </view>
+    </view>
+    <view class="about {{isAuto?'autoHeight':'selfHeight'}}" >
+      <view class="viewTitle">关于我</view>
+      <view class="text" id="aboutInner">
+        <view>{{detail.content}}</view>
+        <!-- <view>微笑是个搬运工，可以随时搬走压力；微笑是个维修工，可以轻松修复哀痛；微笑是个清洁工，可以认真扫除烦忧。朋友，请每天保持微笑，成为快乐的保管工，幸福的加油工！</view>
+        <view>微笑是个搬运工，可以随时搬走压力；微笑是个维修工，可以轻松修复哀痛；微笑是个清洁工，可以认真扫除烦忧。朋友，请每天保持微笑，成为快乐的保管工，幸福的加油工！</view>
+        <view>微笑是个搬运工，可以随时搬走压力；微笑是个维修工，可以轻松修复哀痛；微笑是个清洁工，可以认真扫除烦忧。朋友，请每天保持微笑，成为快乐的保管工，幸福的加油工！</view> -->
+      </view>
+     <view wx:if="{{isShowBTn}}">
+        <view wx:if="{{showDown}}" class="down" bindtap="handleDown">
+          <view class="top"></view>
+          <view class="all">
+            展开全部
+            <van-icon name="arrow-down" />
+          </view>
+        </view>
+        <view wx:if="{{!showDown}}" class="pull" bindtap="handlePull">
+          收起
+          <van-icon name="arrow-up" />
+        </view>
+     </view>
+    </view>
+    <view class="topic">
+      <view class="viewTitle">擅长话题</view>
+      <view class="inner">
+        <view class="item">
+          <view class="subTitle">跳槽、工作找对目标，职业发展牛起来！</view>
+          <view class="text">如果您职业发展上出现困惑迷茫，内心纠结不知问题所在，需要寻找发展方向、把握新的机会、掌握成长路径和经验…</view>
+        </view>
+        <view class="item">
+          <view class="subTitle">跳槽、工作找对目标，职业发展牛起来！</view>
+          <view class="text">如果您职业发展上出现困惑迷茫，内心纠结不知问题所在，需要寻找发展方向、把握新的机会、掌握成长路径和经验…</view>
+        </view>
+        <view class="item">
+          <view class="subTitle">跳槽、工作找对目标，职业发展牛起来！</view>
+          <view class="text">如果您职业发展上出现困惑迷茫，内心纠结不知问题所在，需要寻找发展方向、把握新的机会、掌握成长路径和经验…</view>
+        </view>
+      </view>
+    </view>
+    <view class="operate">
+      <view class="left">
+        <view class="inner">
+          <text class="text">约TA见面</text>
+          <view class="line"></view>
+        </view>
+        <view class="price">
+          <text class="icon">¥</text>
+          <text class="num">1888</text>
+          <text class="time">/小时</text>
+        </view>
+      </view>
+      <button class="right" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        向TA咨询
+      </button>
+      <!-- <view class="right" bind:tap="ask">向TA咨询</view> -->
+    </view>
+    <view class="registerMask" wx:if="{{showRegister}}">
+        <van-popup class="applyPop" show="{{ showRegister }}" overlay="{{true}}" position="bottom" bind:close="onClose">
+          <register id="showRegister" bind:myevent="onGetCode" bind:closeReg="closeReg"></register>
+        </van-popup>
+    </view>
+  </view>
+</scroll-view>

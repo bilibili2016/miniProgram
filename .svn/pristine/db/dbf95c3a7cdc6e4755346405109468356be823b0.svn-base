@@ -1,0 +1,330 @@
+// pages/home/index/index.js
+// socket 连接插件
+const io = require('../../../utils/weapp.socket.io')
+var that
+const req = require('../../../req/api/home')
+
+Page({
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        socketUrl: 'wss://ceshiapi.1911edu.com:2120',
+        socketMessage: '',
+        bannerList: [
+            'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+            'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+            'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+        ],
+        teacherList: [{
+                "id": "270",
+                "teacher_name": "彭凯平",
+                "picture": "",
+                "content": "清华大学社会科学学院院长，心理学系系主任，清华大学-伯克利心理学高级研究中心、清华大学社科学院积极心理学研究中心主任，清华大学幸福科技实验室联合主席,1911学堂干部学院专家组组长。研究方向为社会心理学、文化心理学、积极心理学。已发表学术论文300多篇，出版中英文著作8部。荣获美国社会心理学会最佳论文奖、美国管理学院最佳论文奖等奖项，连续三年入选Elsevier“中国高被引学者”榜单。",
+                "head_img": "https://image.1911edu.com/1557726828.png",
+                "graduate": "清华大学社会科学学院院长、1911学堂干部学院专家组组长",
+                "wish_word": "",
+                "is_meet": "0",
+                "curriculumList": [],
+                "is_teachering": 0,
+                "questionList": [{
+                        "id": "52",
+                        "title": "社会心理学",
+                        "teacher_id": "270",
+                        "type": "1",
+                        "sort": "3",
+                        "status": "1",
+                        "create_time": "1560929319"
+                    },
+                    {
+                        "id": "57",
+                        "title": "文化心理学",
+                        "teacher_id": "270",
+                        "type": "1",
+                        "sort": "0",
+                        "status": "1",
+                        "create_time": "1560929823"
+                    },
+                    {
+                        "id": "58",
+                        "title": "积极心理学",
+                        "teacher_id": "270",
+                        "type": "1",
+                        "sort": "0",
+                        "status": "1",
+                        "create_time": "1560929857"
+                    }
+                ]
+            },
+            {
+                "id": "291",
+                "teacher_name": "何茂春",
+                "picture": "",
+                "content": "清华大学社科学院国际关系学系教授、清华大学经济外交研究中心主任、博士生导师，国务院参事。\n05年进入清华执教，主讲外交学、经济外交、国际形势、国际化战略、国际关系写作等课程。\n中国民主同盟中央常委，民盟中央经济委员会主任。兼任国家税务总局特邀监察员、商务部“商务时评”专家、中国国际关系学系会经济外交研究会副会长、《中国经济外交》年刊主编、中国法学会WTO法学会常务理事等职。\n",
+                "head_img": "https://image.1911edu.com/1560823211.png",
+                "graduate": "清华大学社科学院国际关系学系教授、经济外交研究中心主任",
+                "wish_word": "",
+                "is_meet": "0",
+                "curriculumList": [],
+                "is_teachering": 0,
+                "questionList": [{
+                        "id": "53",
+                        "title": "世界贸易组织规则",
+                        "teacher_id": "291",
+                        "type": "1",
+                        "sort": "2",
+                        "status": "1",
+                        "create_time": "1560929467"
+                    },
+                    {
+                        "id": "59",
+                        "title": "经济外交和国际化战略",
+                        "teacher_id": "291",
+                        "type": "1",
+                        "sort": "1",
+                        "status": "1",
+                        "create_time": "1560929914"
+                    }
+                ]
+            },
+            {
+                "id": "295",
+                "teacher_name": "刘江永",
+                "picture": "",
+                "content": "清华大学国际问题研究所教授、副所长、博士生导师。兼任中国国际关系学会常务理事、中华日本学会常务理事、中日关系史学会常务理事、中国外交学会理事、中日友好协会理事、和平与发展研究中心理事、中国教育部日本教育专家组成员、国务院发展研究中心亚非发展交流协会常务理事、中华日本学会《日本学刊》杂志编委、《亚非纵横》月刊编委、中国国际广播电台环球咨询广播特约专家等。\n",
+                "head_img": "https://image.1911edu.com/1560828666.png",
+                "graduate": "清华大学国际问题研究所教授、副所长、博士生导师",
+                "wish_word": "",
+                "is_meet": "0",
+                "curriculumList": [],
+                "is_teachering": 0,
+                "questionList": [{
+                        "id": "54",
+                        "title": "国际关系",
+                        "teacher_id": "295",
+                        "type": "1",
+                        "sort": "3",
+                        "status": "1",
+                        "create_time": "1560929577"
+                    },
+                    {
+                        "id": "60",
+                        "title": "国际战略",
+                        "teacher_id": "295",
+                        "type": "1",
+                        "sort": "2",
+                        "status": "1",
+                        "create_time": "1560929962"
+                    },
+                    {
+                        "id": "61",
+                        "title": "国家安全",
+                        "teacher_id": "295",
+                        "type": "1",
+                        "sort": "1",
+                        "status": "1",
+                        "create_time": "1560929973"
+                    }
+                ]
+            },
+            {
+                "id": "271",
+                "teacher_name": "董关鹏",
+                "picture": "",
+                "content": "中国传媒大学媒介与公共事务研究院学术委员会主任，教授、博士生导师，1911学堂新闻传播学院专家组组长。全国领导干部媒介素养培训基地主任。研究专长为公共关系与战略传播实务、媒介与公共事务、企业传播、危机传播和领导者公信力综合研究等。担任国家级新闻发言人和应急管理实务培训的核心专家和主讲教师。曾以顾问专家、独董和主讲教授身份为国内外多家领先企业提供战略传播培训和咨询服务。",
+                "head_img": "https://image.1911edu.com/1557726157.png",
+                "graduate": "中国传媒大学教授、博导，1911学堂新闻传播学院专家组组长",
+                "wish_word": "",
+                "is_meet": "0",
+                "curriculumList": [],
+                "is_teachering": 0,
+                "questionList": [{
+                        "id": "55",
+                        "title": "公共关系与战略传播实务",
+                        "teacher_id": "271",
+                        "type": "1",
+                        "sort": "3",
+                        "status": "1",
+                        "create_time": "1560929660"
+                    },
+                    {
+                        "id": "62",
+                        "title": "媒介与公共事务",
+                        "teacher_id": "271",
+                        "type": "1",
+                        "sort": "2",
+                        "status": "1",
+                        "create_time": "1560930030"
+                    },
+                    {
+                        "id": "63",
+                        "title": "企业传播",
+                        "teacher_id": "271",
+                        "type": "1",
+                        "sort": "1",
+                        "status": "1",
+                        "create_time": "1560930041"
+                    },
+                    {
+                        "id": "64",
+                        "title": "危机传播和领导者公信力综合研究",
+                        "teacher_id": "271",
+                        "type": "1",
+                        "sort": "0",
+                        "status": "1",
+                        "create_time": "1560930059"
+                    }
+                ]
+            },
+        ],
+    },
+    getBannerList: function () {
+        req.home.getBannerList({
+                type: '1',
+                limit: 3
+            })
+            .then(res => {
+                console.log(res);
+                if (res.status == 0) {
+                    // this.setData({
+                    //     courseDetail: res.data.curriculumDetail
+                    // })
+                }
+            })
+            .catch();
+    },
+    /**
+     * 启动socket
+     */
+    socketStart: function () {
+
+        // 设置socket连接地址 socketUrl
+        const socket = (this.socket = io(
+            this.socketUrl,
+        ))
+
+        socket.on('connect', () => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接成功 → \n\n'
+            })
+            // 此处修改为与server约定的数据、格式
+            var sendMessage = '{"token":"v3jsoc8476shNFhxgqPAkkjt678","client":"发送内容"}'
+            this.socketSendMessage(sendMessage);
+        })
+
+        socket.on('connect_error', d => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接失败 → \n\n'
+            })
+        })
+
+        socket.on('connect_timeout', d => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接超时 → \n\n'
+            })
+        })
+
+        socket.on('disconnect', reason => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接断开 → \n\n'
+            })
+        })
+
+        socket.on('reconnect', attemptNumber => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET正在重连 → \n\n'
+            })
+        })
+
+        socket.on('reconnect_failed', () => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET重连失败 → \n\n'
+            })
+        })
+
+        socket.on('reconnect_attempt', () => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET正在重连 → \n\n'
+            })
+        })
+
+        socket.on('error', err => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接错误 → \n\n'
+            })
+        })
+
+        socket.on('message', function (d) {
+            this.setData({
+                socketMessage: this.socketMessage += '服务器返回数据 → \n\n'
+            })
+            that.socketReceiveMessage(d)
+        })
+
+    },
+    // 挑战活动页
+    handleLink: function (e) {
+        console.log(e);
+        wx.navigateTo({
+            url: e.currentTarget.dataset.url
+        })
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+
+        // that = this
+        this.getBannerList()
+        // this.socketStart();
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
+})

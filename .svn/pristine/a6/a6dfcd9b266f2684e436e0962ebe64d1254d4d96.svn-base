@@ -1,0 +1,265 @@
+// socket 连接插件
+const io = require('../../../utils/weapp.socket.io')
+Page({
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        showTool: false,
+        socketUrl: 'wss://ceshiapi.1911edu.com:2120',
+        showPdb: false,
+        windowHeight: 0,
+        inputValue: '',
+        toolLoading: true,
+        focusInput: false,
+        chatList: [{
+                sendType: 1,
+                contentType: 1,
+                headImg: 'https://ceshi-image.1911edu.com/1556200492.jpg',
+                content: '小程序提供了一个简单、高效的应用开发框架和丰富的组件及API，帮助开发者在微信中开发具有原生 APP 体验的服务。'
+            },
+            {
+                sendType: 2,
+                contentType: 1,
+                headImg: 'https://image.1911edu.com/1531716858',
+                content: '由于近期小程序·云开发将上线付费功能（付费功能针对非基础资源配额，基础资源配额仍可免费使用）。为了给开发者更充足的时间进行调整，对于截止 2019-06-21 日前通过邮件申请调整的配额（非基础资源配额）的截止日期统一延长至 2019-08-31。'
+            },
+            {
+                sendType: 1,
+                contentType: 1,
+                headImg: 'https://ceshi-image.1911edu.com/1556200492.jpg',
+                content: '小程体验的服务。'
+            },
+            {
+                sendType: 2,
+                contentType: 1,
+                headImg: 'https://image.1911edu.com/1531716858',
+                content: '由于近期小。'
+            },
+            {
+                sendType: 1,
+                contentType: 1,
+                headImg: 'https://ceshi-image.1911edu.com/1556200492.jpg',
+                content: '小程序提供了一个简单、高效的应用开发框架和丰富的组件及API，帮助开发者在微信中开发具有原生 APP 体验的服务。'
+            },
+            {
+                sendType: 2,
+                contentType: 2,
+                headImg: 'https://image.1911edu.com/1531716858',
+                content: 'https://image.1911edu.com/1556606869.jpg'
+            }
+        ]
+    },
+    bindload: function (e) {
+        this.pageScrollToBottom()
+    },
+    bindShowTool: function () {
+        this.setData({
+            showTool: !this.data.showTool
+        })
+        this.pageScrollToBottom(this.data.showTool)
+    },
+    bindReplaceInput: function () {
+        this.setData({
+            showTool: false
+        })
+    },
+    bindFocusInput: function () {
+        this.setData({
+            showTool: false,
+            focusInput: true
+        })
+    },
+    bindblur: function () {
+        this.setData({
+            focusInput: false
+        })
+    },
+    /**
+     * 启动socket
+     */
+    socketStart: function () {
+        // 设置socket连接地址 socketUrl
+        this.socket = (this.socket = io(
+            this.data.socketUrl,
+        ))
+
+        this.socket.on('connect', () => {
+            //用户进行登录
+            this.socket.emit('login', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTcifQ.aM2mK2TtTrVuo161KQBAqn7TGlvmF4YVkEMLm23tQ_Ine4c', 'ordinaryUser');
+            //为用户进行分组
+            this.socket.emit('userGroup', 'ordinaryUser');
+        })
+        //就收后台websocket推送的消息
+        this.socket.on('new_msg', msg => {
+            this.dataBinding(1, msg.contentType, 'https://ceshi-image.1911edu.com/1556200492.jpg', msg.content)
+            this.pageScrollToBottom()
+        })
+    },
+    bindconfirm: function (e) {
+        this.dataBinding(2, 1, 'https://image.1911edu.com/1531716858', e.detail.value)
+        this.pageScrollToBottom()
+        this.socket.emit('consultation', 2051, content, 1, 'ordinaryUser');
+        this.setData({
+            inputValue: ''
+        })
+    },
+    pageScrollToBottom: function (e = false) {
+        if (e) {
+            this.setData({
+                showPdb: true
+            })
+        } else {
+            this.setData({
+                showPdb: false
+            })
+        }
+        wx.createSelectorQuery().select('#chatInfo').boundingClientRect(rect => {
+            // 使页面滚动到底部
+            wx.pageScrollTo({
+                scrollTop: rect.height
+            })
+        }).exec()
+    },
+    chooseImage: function (e) {
+        wx.chooseImage({
+            count: 1, //可选图片数量
+            sizeType: ['compressed'],
+            sourceType: ['album'],
+            success: res => {
+                this.uploadImages(res.tempFilePaths[0])
+            }
+        })
+    },
+    camera: function () {
+        wx.chooseImage({
+            count: 1, //可选图片数量
+            sourceType: ['camera'],
+            success: res => {
+                this.uploadImages(res.tempFilePaths[0])
+            }
+        })
+    },
+    uploadImages: function (src) {
+        var that = this
+        wx.showToast({
+            title: '正在发送...',
+            icon: 'loading',
+            mask: true,
+            duration: 2000
+        })
+        //向服务器端上传图片
+        // getApp().data.servsers,这是在app.js文件里定义的后端服务器地址
+        wx.uploadFile({
+            url: 'https://ceshiapi.1911edu.com/Publics/Upload/dropZoneUpload',
+            filePath: src,
+            name: 'file',
+            formData: {
+                'user': 'test'
+            },
+            success: function (res) {
+                var sss = JSON.parse(res.data)
+                var dizhi = sss.data.full_path;
+
+                that.socket.emit('consultation', 2051, dizhi, 2, 'ordinaryUser');
+                that.setData({
+                    showTool: false
+                })
+                that.dataBinding(2, 2, 'https://image.1911edu.com/1531716858', dizhi)
+                that.pageScrollToBottom()
+            }
+        });
+
+    },
+    /**
+     * 聊天列表中增加数据
+     *  sendType 发送人 ：1自己 2对方
+     *  contentType 消息类型 ：1文字 2图片
+     *  headImg 头像
+     *  content 消息内容
+     */
+    dataBinding: function (sendType = 1, contentType = 1, headImg, content) {
+        var obj = new Object;
+        var newArr = [];
+        obj.sendType = sendType;
+        obj.contentType = contentType;
+        obj.headImg = headImg;
+        obj.content = content;
+        newArr.push(obj)
+        this.setData({
+            chatList: this.data.chatList.concat(newArr)
+        })
+    },
+    lookBigIMG: function (e) {
+        let arr = []
+        arr.push(e.currentTarget.dataset.src)
+        //图片预览
+        wx.previewImage({
+            current: e.currentTarget.dataset.src, // 当前显示图片的http链接
+            urls: arr // 需要预览的图片http链接列表
+        })
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.setData({
+            windowHeight: wx.getSystemInfoSync().windowHeight
+        })
+        this.socketStart();
+
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+        this.pageScrollToBottom()
+        this.setData({
+            toolLoading: false
+        })
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
+})

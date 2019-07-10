@@ -1,0 +1,7 @@
+{
+    /* < script src = "https://js.1911edu.com/socket.io.js" > < /script> */ }
+
+// const io = new io('https://ceshiapi.1911edu.com:2120')
+// module.exports = {
+//     socket: io
+// }

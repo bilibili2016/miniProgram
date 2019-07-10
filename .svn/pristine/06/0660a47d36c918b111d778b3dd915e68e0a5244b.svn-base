@@ -1,0 +1,20 @@
+<!--pages/test/test.wxml-->
+<view class="divcss5">
+  <form bindsubmit="bindFormSubmit">
+    <textarea placeholder="form 中的 textarea" name="textarea"/>
+    <button form-type="submit"> 提交 </button>
+  </form>
+</view>
+<view>
+    <view wx:for="{{socketData}}" wx:key="{{index}}">
+        <view wx:if="{{item.contentType==1}}">
+            {{item.name}}{{item.word}}
+        </view>
+        <view wx:if="{{item.contentType==2}}">
+            {{item.name}}<cover-image class="img" src="{{item.word}}" />
+        </view>
+    </view>
+</view>
+<button type="default" size="mini" bindtap="chooseImage"  wx:if="{{images.length < 3}}">添加图片</button>
+
+<button class="info" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登录/注册</button>

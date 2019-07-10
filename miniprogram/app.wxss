@@ -1,0 +1,47 @@
+/**app.wxss**/
+@import './components/common/cutPicture/cutPicture.wxss'
+
+view {
+    margin: 0;
+    padding: 0;
+    border: none;
+    word-break: break-all;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix {
+    overflow: auto;
+    _height: 1%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+
+button {
+    background: initial;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button::after {
+    border: none;
+}
+
+/* 现在预约页面日历组件改下星期样式 */
+.appointment .calendar--weekTitle_box .calendar--weekTitle {
+    color: #333;
+}

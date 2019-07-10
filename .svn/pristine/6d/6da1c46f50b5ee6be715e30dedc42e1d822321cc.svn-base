@@ -1,0 +1,124 @@
+<view class="user">
+    <view class="top">
+        <view class="info" wx:if="{{isLogin}}">
+            <view class="text">
+                <text>{{userInfo.nickName}}</text>
+            </view>
+            <view class="headImg">
+                <image src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            </view>
+        </view>
+        <button class="info" wx:else open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+            <view class="headImg">
+                <image src="https://h5-image.1911edu.com/mini-myIcon3.png"></image>
+            </view>
+            <view class="text">登录/注册</view>
+        </button>
+        <view class="vip"  wx:if="{{isTeacher}}">
+             <view class="vipInner">
+                 <text class="desc">会员服务</text>
+                 <text class="num">剩余咨询次数：2次</text>
+                 <text class="btn">购买</text>
+             </view>
+         </view>
+    </view>
+    <view wx:if="{{!isTeacher}}" class="bottom">
+            <view class="twos">
+                <view class="item">
+                    <van-icon class="leftIcon" name="notes-o" />
+                    <text class="inner">账户设置</text>
+                    <view class="rightIcon">
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+                <view class="item wallet">
+                    <van-icon class="leftIcon" name="notes-o" />
+                    <text class="inner">我的钱包</text>
+                    <view class="rightIcon">
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+            </view>
+        <view class="other">
+                <view class="item">
+                    <van-icon class="leftIcon" name="notes-o" />
+                    <text class="inner">主页设置</text>
+                    <view class="rightIcon">
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+                <view class="item">
+                    <van-icon class="leftIcon" name="notes-o" />
+                    <text class="inner">预约设置</text>
+                    <view class="rightIcon">
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+                <view class="item" bindtap="handleLink">
+                    <van-icon class="leftIcon" name="notes-o" />
+                    <text class="inner">我的预约</text>
+                    <view class="rightIcon">
+                        <text class="alert">1</text>
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+                <view class="item">
+                    <van-icon class="leftIcon" name="notes-o" />
+                    <text class="inner">我的邀请码</text>
+                    <view class="rightIcon">
+                        <van-icon class="icon" name="arrow" />
+                    </view>
+                </view>
+        </view>
+    </view>
+    <view wx:else class="bottom teacherBottom">
+        <view class="twos">
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">账户设置</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">我的收藏</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+            <view class="item" bindtap="handleLink">
+                 <van-icon class="leftIcon" name="notes-o" />
+                 <text class="inner">我的预约</text>
+                 <view class="rightIcon">
+                     <text class="alert">1</text>
+                     <van-icon class="icon" name="arrow" />
+                 </view>
+             </view>
+        </view>
+        <view class="other">
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">系统设置</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">常见问题</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">在线客服</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+        </view>
+        <view class="btn" bindtap="beTeacher">成为专家</view>
+    </view>
+</view>

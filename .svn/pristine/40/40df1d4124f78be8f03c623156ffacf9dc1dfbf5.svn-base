@@ -1,0 +1,34 @@
+<view class="user">
+  <view class="activity">
+    <view class="actvList" wx:for="{{activityList}}" wx:key="{{index}}">
+      <image class="cover" src="{{item.cover}}" />
+      <view class="word">
+        <image src="https://h5-image.1911edu.com/mini-userIcon.png" />
+        <text class="people">{{item.number}}</text>
+        <text class="text">人正在参与此活动</text>
+      </view>
+      <view class="time">
+        <van-icon class='icon' name="clock-o" />
+        <text>2019.07.04 13:00</text>
+      </view>
+    </view>
+    <!-- <view class="teacherList" wx:for="{{teacherList}}" wx:key="{{index}}">
+
+    </view> -->
+    <view class="teacherList">
+      <view class="item">
+        <view class="info">
+          <image class="headImg" src=""></image>
+          <text class="name">周超</text>
+          <text class="flag">专家</text>
+          <text class="status confirming">预约确认中</text>
+          <view class="desc">人力公司总经理，职业指导师服务专家</view>
+        </view>
+        <view class="log">
+          <text>跳槽、工作找对目标，职业发展牛起来！</text>
+          <text>私教：转职、空降，顺利适应新岗位！</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

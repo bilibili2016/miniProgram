@@ -1,0 +1,160 @@
+//app.js
+const req = require('./req/index')
+import {
+    message
+} from './utils/common'
+App({
+    onLaunch: function () {
+        if (!wx.cloud) {
+            console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+        } else {
+            wx.cloud.init({
+                traceUser: true,
+            })
+        }
+
+        this.globalData = {}
+        this.myData = {
+            status: false,
+            msg: ''
+        }
+
+    },
+
+
+    //验证用户是否授权
+    authorize: function (selector) {
+        let that = this
+        return new Promise((resolve, reject) => {
+            if (wx.getStorageSync('loginData').token) {
+                that.myData.status = true
+                that.myData.msg = 'ok'
+                resolve(that.myData)
+            } else {
+                wx.getStorage({
+                    key: 'authorizeData',
+                    success(res) {
+                        //验证参数是否存在
+                        if ((res.data.openid == '' || res.data.openid == null || res.data.openid == undefined)) {
+                            resolve(that.getlogin())
+                        } else {
+                            that.myData.status = false
+                            that.myData.msg = res
+                            resolve(that.myData)
+                        }
+                    },
+                    fail(err) {
+                        //重新获取登录状态
+                        resolve(that.getlogin())
+                    }
+                })
+            }
+        })
+    },
+    //用户换取换取session_key和openid
+    getlogin: function () {
+        let that = this
+        return new Promise((resolve, reject) => {
+            wx.login({
+                success(res) {
+                    if (res.code) {
+                        //发起网络请求
+                        wx.request({
+                            url: 'https://ceshiapi.1911edu.com/Miniprogram/Login/loginCode',
+                            data: {
+                                code: res.code
+                            },
+                            success: codeRes => {
+                                var dataRes = codeRes.data
+                                var obj = {}
+                                obj.session_key = dataRes.data.session_key
+                                obj.openid = dataRes.data.openid
+                                if (dataRes.status == 0) {
+                                    //将或得到的session_key 保存到缓存中
+                                    wx.setStorage({
+                                        key: "authorizeData",
+                                        data: obj
+                                    })
+                                    //获取用户unionId
+                                    resolve(that.getUserInfo(dataRes.data.session_key));
+                                } else {
+                                    that.myData.status = false
+                                    that.myData.msg = '换取session_key和openid失败'
+                                    resolve(that.myData)
+                                }
+                            }
+                        })
+                    } else {
+                        that.myData.status = false
+                        that.myData.msg = '登录失败！' + res.errMsg
+                        resolve(that.myData)
+                    }
+                },
+                fail(err) {
+                    that.myData.status = false
+                    that.myData.msg = err
+                    resolve(that.myData)
+                }
+            })
+        })
+
+    },
+    //根据session_key换取unionId
+    getUserInfo: function (session_key) {
+        let that = this
+        return new Promise((resolve, reject) => {
+            wx.getUserInfo({
+                success: getUserInfoRes => {
+                    //网络请求换取unionId
+                    wx.request({
+                        url: 'https://ceshiapi.1911edu.com/Miniprogram/Login/decryptData',
+                        data: {
+                            encrypted_data: getUserInfoRes.encryptedData,
+                            iv: getUserInfoRes.iv,
+                            session_key: session_key
+                        },
+                        success: res => {
+                            var dataRes = res.data
+                            if (dataRes.status == 0) {
+                                //获取缓存中的数据
+                                wx.setStorage({
+                                    key: "loginData",
+                                    data: dataRes.data
+                                })
+                                if (dataRes.data.token) {
+                                    that.myData.status = 1
+                                    that.myData.msg = 'ok'
+                                    resolve(that.myData)
+                                } else {
+                                    that.myData.status = 2
+                                    that.myData.msg = 'ok'
+                                    resolve(that.myData)
+                                }
+
+                            } else {
+                                that.myData.status = false
+                                that.myData.msg = res.msg
+                                resolve(that.myData)
+                            }
+                        }
+                    })
+                }
+            })
+        })
+
+    },
+    getUserDetail: function () {
+        req.profile.getUserDetail()
+            .then(res => {
+                if (res.status == 0) {
+                    wx.setStorage({
+                        key: "userInfo",
+                        data: res.data.userInfo
+                    })
+                } else {
+                    message(res.msg)
+                }
+            })
+    },
+
+})

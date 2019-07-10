@@ -1,0 +1,62 @@
+<view class="search">
+    <view class="input">
+        <van-icon class="searchIcon" name="search" />
+        <input type="text" placeholder="请输入导师名称" maxlength="30" value="{{teacherParams.search_word}}" confirm-type="search" bindinput="bindinput" bindconfirm="bindconfirm" />
+        <view class="exit" bind:tap="exit">取消</view>
+    </view>
+    <view class="searchWord" wx:if="{{!isSearch}}">
+        <view class="history" wx:if="{{historyList.length>0}}">
+            <view class="title">
+                搜索历史
+                <van-icon name="delete" size="40rpx" class="iconDelete" bind:tap="clearUserSearchRecord" />
+            </view>
+            <view class="historyList clearfix">
+                <view class="button" wx:for="{{historyList}}" wx:key="{{index}}" data-value="{{item.search_word}}" bind:tap="onclick">
+                    {{item.search_word}}
+                </view>
+            </view>
+        </view>
+        <view class="hot">
+            <view class="title">热门搜索</view>
+            <view class="hotList clearfix">
+                <view class="button" wx:for="{{hotList}}" wx:key="{{index}}" data-value="{{item.search_word}}" bind:tap="onclick">
+                    <van-icon wx:if="{{index<3}}" name="fire" size="30rpx" class="fire" />
+                    {{item.search_word}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="teacherList" wx:else>
+        <view wx:if="{{teacherList.length>0}}">
+            <view class="teacher" wx:for="{{teacherList}}" wx:key="{{index}}" data-id="{{item.id}}" data-url="/pages/home/professor/detail/detail" bindtap="handleLink">
+                <view class="info">
+                    <image src="{{item.head_img}}" />
+                    <view class="name">
+                        <view class="teacherName">{{item.teacher_name}}</view>
+                        <view>{{item.graduate}}</view>
+                    </view>
+                </view>
+                <view class="buttonList">
+                    <text wx:for="{{item.tagList}}" wx:key="{{index}}" wx:for-item="tag">
+                        {{tag.tag_name}}
+                    </text>
+                </view>
+                <view class="tag" wx:for="{{item.questionList}}" wx:key="{{index}}" wx:for-item="question">
+                    <image src="{{teacherIcon}}" />
+                    <text class="icon">{{question.title}}</text>
+                </view>
+                <view class="order clearfix">
+                    <view class="fl">
+                        <text class="people">{{item.bespokeNum}}</text>
+                        <text>人咨询过</text>
+                    </view>
+                    <view class="fr" wx:if="{{item.is_meet}}">约TA</view>
+                </view>
+            </view>
+        </view>
+        <view class="noSearch" wx:else>
+            <image src="https://h5-image.1911edu.com/mini-noConsult.png" />
+            <view>没有搜索到内容！</view>
+        </view>
+    </view>
+</view>

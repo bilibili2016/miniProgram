@@ -1,0 +1,77 @@
+<!-- miniprogram/pages/professor/detail/detail.wxml -->
+<view class="professorDetai">
+  <image class="bannerImg" src=''></image>
+  <view class="info">
+    <view class="head">
+      <image class="headImg" src="https://image.1911edu.com/1557726828.png"></image>
+    </view>
+    <text class="name">彭凯平</text>
+    <view class="desc">清华大学社会科学学院院长、心理学系系主任彭凯平教授担任专家组组长</view>
+    <view class="numbers">
+      <view class="item">
+        <text class="num">932</text>
+        <text class="text">访问量</text>
+        <text class="line"></text>
+      </view>
+      <view class="item">
+        <text class="num">3208</text>
+        <text class="text">关注量</text>
+        <text class="line"></text>
+      </view>
+      <view class="item">
+        <text class="num">932</text>
+        <text class="text">咨询数</text>
+      </view>
+    </view>
+  </view>
+  <view class="about" style="height:{{aboutHeight}};overflow:{{ablutHidden}}">
+    <view class="viewTitle">关于我</view>
+    <view class="text">
+      <view>微笑是个搬运工，可以随时搬走压力；微笑是个维修工，可以轻松修复哀痛；微笑是个清洁工，可以认真扫除烦忧。朋友，请每天保持微笑，成为快乐的保管工，幸福的加油工！</view>
+      <view>微笑是个搬运工，可以随时搬走压力；微笑是个维修工，可以轻松修复哀痛；微笑是个清洁工，可以认真扫除烦忧。朋友，请每天保持微笑，成为快乐的保管工，幸福的加油工！</view>
+      <view>微笑是个搬运工，可以随时搬走压力；微笑是个维修工，可以轻松修复哀痛；微笑是个清洁工，可以认真扫除烦忧。朋友，请每天保持微笑，成为快乐的保管工，幸福的加油工！</view>
+    </view>
+    <view wx:if="{{showDown}}" class="down" bindtap="handleDown">
+      <view class="top"></view>
+      <view class="all">
+        展开全部
+        <van-icon name="arrow-down" />
+      </view>
+    </view>
+    <view wx:if="{{!showDown}}" class="pull" bindtap="handlePull">
+      收起
+      <van-icon name="arrow-up" />
+    </view>
+  </view>
+  <view class="topic">
+    <view class="viewTitle">擅长话题</view>
+    <view class="inner">
+      <view class="item">
+        <view class="subTitle">跳槽、工作找对目标，职业发展牛起来！</view>
+        <view class="text">如果您职业发展上出现困惑迷茫，内心纠结不知问题所在，需要寻找发展方向、把握新的机会、掌握成长路径和经验…</view>
+      </view>
+      <view class="item">
+        <view class="subTitle">跳槽、工作找对目标，职业发展牛起来！</view>
+        <view class="text">如果您职业发展上出现困惑迷茫，内心纠结不知问题所在，需要寻找发展方向、把握新的机会、掌握成长路径和经验…</view>
+      </view>
+      <view class="item">
+        <view class="subTitle">跳槽、工作找对目标，职业发展牛起来！</view>
+        <view class="text">如果您职业发展上出现困惑迷茫，内心纠结不知问题所在，需要寻找发展方向、把握新的机会、掌握成长路径和经验…</view>
+      </view>
+    </view>
+  </view>
+  <view class="operate">
+    <view class="left">
+      <view class="inner">
+        <text class="text">约TA见面</text>
+        <view class="line"></view>
+      </view>
+      <view class="price">
+        <text class="icon">¥</text>
+        <text class="num">1888</text>
+        <text class="time">/小时</text>
+      </view>
+    </view>
+    <view class="right">向TA咨询</view>
+  </view>
+</view>

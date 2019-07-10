@@ -1,0 +1,34 @@
+<view class="user">
+  <view class="bottom">
+    <view class="list">
+      <view class="item img" bindtap="uploadImg">
+        <view class="itemCon">
+          <text class="inner">头像</text>
+          <view class="rightIcon">
+            <image class="headImg" src="https://h5-image.1911edu.com/mini-myIcon3.png"></image>
+            <van-icon class="icon" name="arrow" />
+          </view>
+        </view>
+      </view>
+      <view class="item  marginBox img" bindtap="uploadImg">
+        <view class="itemCon">
+          <text class="inner">形象照</text>
+          <view class="rightIcon">
+            <image class="headImg" src="https://h5-image.1911edu.com/mini-myIcon3.png"></image>
+            <van-icon class="icon" name="arrow" />
+          </view>
+        </view>
+      </view>
+      <view class="item" wx:for="{{itemList}}" wx:key="{{index}}" data-url="{{item.url}}" bindtap="handleLink">
+        <view class="itemCon">
+          <text class="inner">{{item.title}}</text>
+          <view class="rightIcon">
+            <text wx:if="{{item.alertNum}}" class="alert">{{item.alertNum}}</text>
+            <van-icon class="icon" name="arrow" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btn">提交审核</view>
+  </view>
+</view>

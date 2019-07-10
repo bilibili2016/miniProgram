@@ -1,0 +1,13 @@
+/* miniprogram/pages/user/setUser/profession/profession.wxss */
+.profession {
+  padding: 0 32rpx;
+}
+
+.profession .item {
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #303030;
+  border-bottom: 1rpx solid #adadad;
+
+}

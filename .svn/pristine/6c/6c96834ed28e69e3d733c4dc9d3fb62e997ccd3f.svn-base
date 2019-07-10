@@ -1,0 +1,98 @@
+@import "../../../app.wxss";
+
+.register {
+    /* width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .3); */
+}
+
+.register .content {
+    width: 100%;
+    padding: 0 0 40rpx;
+    background-color: #fff;
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    border-radius: 19px 19px 0px 0px;
+}
+
+.register .title {
+    height: 118rpx;
+    line-height: 118rpx;
+    width: 686rpx;
+    margin: 0 auto;
+}
+
+.register .title .titleName {
+    font-size: 38rpx;
+    color: #303030;
+    float: left;
+}
+
+.register .title .icon {
+    color: #87868B;
+    float: right;
+}
+
+.register .section {
+    width: 686rpx;
+    height: 88rpx;
+    background: rgba(245, 245, 245, 1);
+    border-radius: 10rpx;
+    margin: 0 auto 30rpx;
+}
+
+.register .section input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 30rpx;
+    font-size: 30rpx;
+}
+
+.register .section.code {
+    display: flex;
+}
+
+.register .section.code input {
+    flex: 1;
+}
+
+.register .section.code .sectionCode {
+    width: 180rpx;
+    height: 24rpx;
+    text-align: center;
+    line-height: 28rpx;
+    padding: 0 15rpx;
+    font-size: 30rpx;
+    margin-top: 29rpx;
+    border-left: 1rpx solid #c7c8cc;
+    color: #87868B;
+}
+
+.register .desc {
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 24rpx;
+    color: #87868B;
+    text-align: center;
+}
+
+.register .desc .pro {
+    color: #317FE8;
+}
+
+.register .applyBtn button {
+    width: 688rpx;
+    height: 88rpx;
+    background: #6317A5;
+    border-radius: 10rpx;
+    color: #fff;
+    margin: 0 auto;
+    border-radius: 10px;
+}

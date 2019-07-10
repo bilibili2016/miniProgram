@@ -1,0 +1,270 @@
+// miniprogram/pages/user/beTeacher/index/index.js
+import {
+  message
+} from '../../../../utils/common'
+const req = require('../../../../req/index')
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    cutSrc: '',
+    isShowCut: false,
+    editObj: {},
+    inputLen: 0,
+    userInfo: {},
+    isTeacher: false,
+    fileForm: {
+      FILESS: [],
+      fileName: ""
+    },
+    uploadInfo: {
+      head_img: "",
+      student_card: "",
+      teacher_name: "",
+      remark: ""
+    },
+    teacherInfo: {},
+    itemList: [{
+        title: '个人介绍',
+        url: "/pages/user/beTeacher/introduction/introduction"
+      },
+      {
+        title: '标签设置',
+        url: "/pages/user/beTeacher/label/index/index"
+      },
+      {
+        title: '话题设置',
+        url: "/pages/user/beTeacher/topic/topic"
+      }
+    ],
+  },
+  handleLink: function (e) {
+    // console.log(e);
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    })
+  },
+  bindInput: function (e) {
+    this.data.uploadInfo.teacher_name = e.detail.value
+    this.setData({
+      uploadInfo: this.data.uploadInfo
+    })
+  },
+  bindTextInput: function (e) {
+    this.data.uploadInfo.remark = e.detail.value
+    this.setData({
+      inputLen: e.detail.value.length,
+      uploadInfo: this.data.uploadInfo
+    })
+  },
+  submit: function (params) {
+    console.log(this.data.uploadInfo);
+    try {
+      if (!this.data.uploadInfo.head_img) throw '请上传头像'
+      if (!this.data.uploadInfo.student_card) throw '请上传学生证照片'
+      if (!this.data.uploadInfo.teacher_name) throw '请填写真实姓名'
+      if (!this.data.uploadInfo.remark) throw '请填写个人介绍'
+    } catch (error) {
+      message(error)
+      return false
+    }
+    req.profile.teacherApply(this.data.uploadInfo)
+      .then(res => {
+        if (res.status == 0) {
+          wx.showModal({
+            title: '提示',
+            content: '提交成功，我们2~3个工作日完成审核，请勿重复提交。',
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '/pages/home/index/index'
+                })
+              }
+            }
+          })
+        } else {
+          message(res.msg)
+        }
+      })
+
+
+  },
+  save: function (params) {
+    wx.navigateTo({
+      url: '/pages/user/profile/profile'
+    })
+  },
+  uploadImg: function (e) {
+    this.data.editObj.flag = e.currentTarget.dataset.id
+    this.data.editObj.type = e.currentTarget.dataset.type
+    this.setData({
+      editObj: this.data.editObj
+    })
+
+    let that = this
+    wx.chooseImage({
+      count: 1, //可选图片数量
+      sizeType: ['compressed'],
+      sourceType: ['album'],
+      success: res => {
+        let src = res.tempFilePaths[0]
+        // that.setData({
+        //   isShowCut: !that.data.isShowCut,
+        //   cutSrc: src
+        // })
+        that.getURl(src)
+        // wx.navigateTo({
+        //   url: `/pages/user/beTeacher/cutFace/cutFace?src=${src}`,
+        //   success(res) {
+        //     console.log(res, 'res22');
+        //     // that.getURl(src, obj)
+        //   }
+        // })
+      }
+    })
+  },
+  getURl: function (src) {
+    var that = this
+    wx.uploadFile({
+      url: 'https://ceshiapi.1911edu.com/Publics/Upload/dropZoneUpload',
+      filePath: src,
+      name: 'file',
+      formData: {
+        'user': 'test'
+      },
+      success: function (res) {
+        // console.log(res);
+        var sss = JSON.parse(res.data)
+        var path = sss.data.full_path;
+
+        //type 1:填写老师信息 2:修改老师信息
+        //flag  1:头像  2:形象照  3:学生证照
+        let obj = that.data.editObj
+        if (obj.type == 1) {
+          if (obj.flag == 1) {
+            that.data.uploadInfo.head_img = path
+          } else if (obj.flag == 3) {
+            that.data.uploadInfo.student_card = path
+          }
+          that.setData({
+            uploadInfo: that.data.uploadInfo
+          })
+        } else if (obj.type == 2) {
+          if (obj.flag == 1) {
+            that.data.teacherInfo.head_img = path
+          } else if (obj.flag == 2) {
+            that.data.teacherInfo.picture = path
+          }
+          that.setData({
+            teacherInfo: that.data.teacherInfo
+          })
+          that.editTeacherInfo()
+        }
+      }
+    });
+
+  },
+  getTeacherApplyInfo: function (params) {
+    req.profile.getTeacherApplyInfo()
+      .then(res => {
+        if (res.status == 0) {
+          console.log(res, 'test');
+          this.data.itemList[0].url = `${this.data.itemList[0].url}?remark=${res.data.remark}`
+          this.setData({
+            itemList: this.data.itemList,
+            teacherInfo: res.data,
+            uploadInfo: res.data
+          })
+        } else {
+          message(res.msg)
+        }
+      })
+  },
+  //修改导师信息
+  editTeacherInfo: function (params) {
+    let obj = {
+      head_img: this.data.teacherInfo.head_img,
+      remark: this.data.teacherInfo.remark,
+      picture: this.data.teacherInfo.picture
+    }
+    req.profile.editTeacherInfo(obj)
+      .then(res => {
+        if (res.status == 0) {
+          console.log(res);
+        } else {
+          message(res.msg)
+        }
+      })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '个人主页设置'
+    })
+
+    if (wx.getStorageSync('userInfo')) {
+      this.setData({
+        userInfo: wx.getStorageSync('userInfo')
+      })
+      this.getTeacherApplyInfo()
+      // if (this.data.userInfo.is_teacher == 1) {
+
+      // }
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

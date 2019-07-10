@@ -1,0 +1,143 @@
+// miniprogram/pages/user/beTeacher/index/index.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    userInfo: {},
+    isTeacher: false,
+    fileForm: {
+      FILESS: [],
+      fileName: ""
+    },
+    uploadInfo: {
+      headImg: "https://h5-image.1911edu.com/mini-myIcon3.png",
+      studentImg: "https://h5-image.1911edu.com/mini-myIcon3.png",
+      figureImg: "https://h5-image.1911edu.com/mini-myIcon3.png",
+      realName: "",
+      intro: ""
+    },
+    itemList: [{
+        title: '个人介绍',
+        url: "/pages/user/beTeacher/introduction/introduction"
+      },
+      {
+        title: '标签设置',
+        url: "/pages/user/beTeacher/label/index/index"
+      },
+      {
+        title: '话题设置',
+        url: "/pages/user/beTeacher/topic/topic"
+      }
+    ],
+  },
+  handleLink: function (e) {
+    console.log(e);
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    })
+  },
+  uploadImg: function (e) {
+    let flag = e.currentTarget.dataset.id
+    wx.chooseImage({
+      count: 1, //可选图片数量
+      sizeType: ['compressed'],
+      // sourceType: ['album'],
+      success: res => {
+        this.uploadImages(res.tempFilePaths[0], flag)
+      }
+    })
+  },
+  uploadImages: function (src, flag) {
+    var that = this
+    wx.uploadFile({
+      url: 'https://ceshiapi.1911edu.com/Publics/Upload/dropZoneUpload',
+      filePath: src,
+      name: 'file',
+      formData: {
+        'user': 'test'
+      },
+      success: function (res) {
+        // console.log(res);
+        var sss = JSON.parse(res.data)
+        var path = sss.data.full_path;
+        //1:头像  2:形象照  3:学生证照
+        if (flag == 1) {
+          that.data.uploadInfo.headImg = path
+        } else if (flag == 2) {
+          that.data.uploadInfo.figureImg = path
+        } else if (flag == 3) {
+          that.data.uploadInfo.studentImg = path
+        }
+        that.setData({
+          uploadInfo: that.data.uploadInfo
+        })
+      }
+    });
+
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '个人主页设置'
+    })
+
+    if (wx.getStorageSync('userInfo')) {
+      this.setData({
+        userInfo: wx.getStorageSync('userInfo')
+      })
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

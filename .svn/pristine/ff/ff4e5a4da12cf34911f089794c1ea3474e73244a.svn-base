@@ -1,0 +1,25 @@
+/* miniprogram/pages/user/beTeacher/topic/topic.wxss */
+
+.btnCon {
+  position: absolute;
+  bottom: 0;
+  left: 30rpx;
+}
+
+.btnCon .desc {
+  text-align: center;
+  font-size: 24rpx;
+  color: #87868B;
+  margin-bottom: 30rpx;
+}
+
+.bottom .btn {
+  width: 686rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #6317A5;
+  margin: 30rpx auto 50rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #6317A5;
+}

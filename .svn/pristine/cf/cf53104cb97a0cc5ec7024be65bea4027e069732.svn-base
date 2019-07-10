@@ -1,0 +1,192 @@
+// pages/home/index/index.js
+// socket 连接插件
+const io = require('../../../utils/weapp.socket.io')
+var that
+const req = require('../../../req/index')
+Page({
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        socketUrl: 'wss://ceshiapi.1911edu.com:2120',
+        socketMessage: '',
+        bannerList: [],
+        teacherList: [],
+        teacherParams: {
+            page: 1,
+            limit: 10,
+            total: ""
+        }
+    },
+    //轮播图
+    getBannerList: function () {
+        req.home.getBannerList({
+                type: '1'
+            })
+            .then(res => {
+                console.log(res);
+                if (res.status == 0) {
+                    this.setData({
+                        bannerList: res.data.bannerList
+                    })
+                }
+            })
+    },
+    //教师列表
+    getTeacherList: function () {
+        req.home.getTeacherList({
+                page: this.data.teacherParams.page,
+                limit: this.data.teacherParams.limit
+            })
+            .then(res => {
+                if (res.status == 0) {
+                    let list = this.data.teacherList.concat(res.data.teacherList)
+                    this.setData({
+                        teacherList: list,
+                        "teacherParams.total": res.data.pageCount
+                    })
+                }
+            })
+    },
+    /**
+     * 启动socket
+     */
+    socketStart: function () {
+
+        // 设置socket连接地址 socketUrl
+        const socket = (this.socket = io(
+            this.socketUrl,
+        ))
+
+        socket.on('connect', () => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接成功 → \n\n'
+            })
+            // 此处修改为与server约定的数据、格式
+            var sendMessage = '{"token":"v3jsoc8476shNFhxgqPAkkjt678","client":"发送内容"}'
+            this.socketSendMessage(sendMessage);
+        })
+
+        socket.on('connect_error', d => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接失败 → \n\n'
+            })
+        })
+
+        socket.on('connect_timeout', d => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接超时 → \n\n'
+            })
+        })
+
+        socket.on('disconnect', reason => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接断开 → \n\n'
+            })
+        })
+
+        socket.on('reconnect', attemptNumber => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET正在重连 → \n\n'
+            })
+        })
+
+        socket.on('reconnect_failed', () => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET重连失败 → \n\n'
+            })
+        })
+
+        socket.on('reconnect_attempt', () => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET正在重连 → \n\n'
+            })
+        })
+
+        socket.on('error', err => {
+            this.setData({
+                socketMessage: this.socketMessage += 'SOCKET连接错误 → \n\n'
+            })
+        })
+
+        socket.on('message', function (d) {
+            this.setData({
+                socketMessage: this.socketMessage += '服务器返回数据 → \n\n'
+            })
+            that.socketReceiveMessage(d)
+        })
+
+    },
+    // 挑战活动页
+    handleLink: function (e) {
+        console.log(e);
+        // let id = e.currentTarget.dataset.id
+        // let url = e.currentTarget.dataset.url
+        // wx.navigateTo({
+        //     url: `${url}?id=${id}`
+        // })
+    },
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+        if (this.data.teacherParams.total > this.data.teacherList.length) {
+            this.setData({
+                "teacherParams.page": ++this.data.teacherParams.page,
+            })
+            this.getTeacherList()
+        }
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.getBannerList()
+        this.getTeacherList()
+        // this.socketStart();
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
+})

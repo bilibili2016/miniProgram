@@ -1,0 +1,112 @@
+// pages/user/user.js
+const req = require('../../../req/index.js');
+const app = getApp()
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        teacherIcon: 'https://h5-image.1911edu.com/miniProgram-icon1.png',
+        isTeacher: true,
+        activityList: [],
+        appoList: [],
+        listParams: {
+            type: 1,
+            page: 1,
+            limit: 10
+        },
+        noData: {
+            isShowTitle: false,
+            title: '我的预约',
+            imgUrl: 'https://h5-image.1911edu.com/mini-noConsult.png',
+            dataDesc: '您还没有任何预约~',
+            btnText: '去首页看看',
+            btnUrl: '/pages/home/index/index',
+            width: '410rpx'
+        },
+    },
+    //预约列表
+    myBespokeOfflineList: function () {
+        req.profile.myBespokeOfflineList(this.data.listParams)
+            .then(res => {
+                if (res.status == 0) {
+                    console.log(res);
+                    this.setData({
+                        appoList: res.data.teacherBespokeOfflineList
+                    })
+                }
+            })
+    },
+    //活动列表
+    myQuestionnaireList: function () {
+        req.profile.myQuestionnaireList()
+            .then(res => {
+                if (res.status == 0) {
+                    console.log(res);
+                    this.setData({
+                        activityList: res.data.questionnaireList
+                    })
+                }
+            })
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        wx.setNavigationBarTitle({
+            title: '我的预约'
+        })
+        this.myBespokeOfflineList()
+        this.myQuestionnaireList()
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
+})

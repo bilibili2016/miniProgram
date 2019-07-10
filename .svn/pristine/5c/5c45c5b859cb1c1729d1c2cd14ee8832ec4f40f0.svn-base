@@ -1,0 +1,25 @@
+<view class="user">
+  <view class="bottom">
+     <view class="item">
+        <van-icon class="leftIcon" name="notes-o" />
+        <text class="inner">小学高中</text>
+        <view class="rightIcon">
+          <van-icon class="icon" name="arrow" />
+        </view>
+      </view>
+      <view class="item">
+        <van-icon class="leftIcon" name="notes-o" />
+        <text class="inner">职业生涯规划</text>
+        <view class="rightIcon">
+          <van-icon class="icon" name="arrow" />
+        </view>
+      </view>
+      <view class="item">
+         <van-icon class="leftIcon" name="notes-o" />
+         <text class="inner">学习方法</text>
+         <view class="rightIcon">
+           <van-icon class="icon" name="arrow" />
+         </view>
+       </view>
+    </view>
+</view>

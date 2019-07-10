@@ -1,0 +1,34 @@
+<view class="home" style="min-height:{{minHeight}}">
+    <view class="recommend" wx:if="{{teacherList.length>0}}">
+        <view class="teacherList">
+            <view class="teacher" wx:for="{{teacherList}}" wx:key="{{index}}" data-id="{{item.id}}" data-id="{{item.id}}" bindtap="handleLink">
+                <view class="info">
+                    <image src="{{item.head_img}}" />
+                    <view class="name">
+                        <view class="teacherName">{{item.teacher_name}}</view>
+                        <view>{{item.graduate}}</view>
+                    </view>
+                </view>
+                <view class="buttonList">
+                    <text wx:for="{{item.tagList}}" wx:key="{{index}}" wx:for-item="tag">
+                        {{tag.tag_name}}
+                    </text>
+                </view>
+                <view class="tag" wx:for="{{item.questionList}}" wx:key="{{index}}" wx:for-item="question">
+                    <image src="{{teacherIcon}}" />
+                    <text class="icon">{{question.title}}</text>
+                </view>
+                <view class="order clearfix">
+                    <view class="fl">
+                        <text class="people">{{item.bespokeNum}}</text>
+                        <text>人咨询过</text>
+                    </view>
+                    <view class="fr" wx:if="{{item.is_meet}}">约TA</view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{teacherParams.total>teacherList.length}}" class="loadMore">加载更多...</view>
+        <view wx:else class="loadMore loadAll">我是有底线的</view>
+    </view>
+    <no-data wx:if="{{teacherList.length==0}}" noData="{{noData}}"></no-data>
+</view>

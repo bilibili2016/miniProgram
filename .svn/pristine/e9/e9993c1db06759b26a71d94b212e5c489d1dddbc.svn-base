@@ -1,0 +1,30 @@
+/* miniprogram/pages/user/myCode/myCode.wxss */
+.myCode {}
+
+.myCode image {
+  display: block;
+  width: 450rpx;
+  margin: 160rpx auto 0;
+}
+
+.myCode .btn {
+  width: 570rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 34rpx;
+  border: 1rpx solid #6317A5;
+  border-radius: 44rpx;
+}
+
+.myCode .btn.save {
+  background-color: #6317A5;
+  color: #fff;
+  margin: 140rpx auto 30rpx;
+}
+
+.myCode .btn.send {
+  background-color: #fff;
+  color: #6317A5;
+}

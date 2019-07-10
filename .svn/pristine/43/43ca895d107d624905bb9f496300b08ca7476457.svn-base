@@ -1,0 +1,30 @@
+<view class="buy">
+    <view class="content">
+        <view class="con">
+            <view>
+                <image src="https://h5-image.1911edu.com/mini-buyBg.png"></image>
+            </view>
+            <view class="inner">
+                <view class="title">
+                    <text class="red">{{buyData.consult_time}}</text>
+                    次提问机会专家大牛随你聊
+                </view>
+                <view class="text">限时特惠</view>
+                <view class="price">
+                    <text class="left">¥</text>
+                    <text class="middle">{{buyData.present_price}}</text>
+                    <text class="right">¥{{buyData.original_price}}</text>
+                </view>
+                <view class="btn" bind:tap="goBuy">开通并咨询</view>
+                <!-- <view class="desc">
+          使用免费机会（剩余
+          <text class="descInner">3</text>
+          次)
+        </view> -->
+            </view>
+        </view>
+        <view class="close" bindtap="close">
+            <van-icon name="close" />
+        </view>
+    </view>
+</view>

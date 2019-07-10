@@ -1,0 +1,154 @@
+// miniprogram/pages/professor/detail/detail.js
+const req = require('../../../../req/index')
+const app = getApp();
+Page({
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        showDown: true,
+        showRegister: false,
+        showPlayBtn: true,
+        videoContext: '',
+        isScroll: true,
+        teacherID: '',
+        detail: "",
+        isShowBTn: false,
+        isAuto: false,
+        path: ''
+    },
+    bindGetUserInfo(e) {
+        if (e.currentTarget.dataset.id == '1') {
+            this.setData({
+                path: `/pages/home/appointment/appointment?id=${this.data.teacherID}`
+            })
+        } else if (e.currentTarget.dataset.id == '2') {
+            this.setData({
+                path: `/pages/consult/chat/chat?receiveId=${this.data.detail.user_id}`
+            })
+        }
+        var that = this
+        //如果用户拒绝授权走此处
+        if (e.detail.errMsg == 'getUserInfo:fail auth deny') {
+            console.log('用户拒绝了授权，无法访问小程序');
+        }
+        //如果用户接受授权走此处
+        if (e.detail.errMsg == 'getUserInfo:ok') {
+            // 登录获取token
+            app.authorize().then(function (res) {
+                // 获取token
+                // 1有token登陆了；2 有unionid没有token，需要绑定手机号；false 错误 停止
+                if (res.status == 1) {
+                    app.getUserDetail()
+                    wx.reLaunch({
+                        url: that.data.path
+                    })
+                } else if (res.status == 2) {
+                    that.setData({
+                        showRegister: true
+                    })
+                } else {
+                    that.setData({
+                        showRegister: false
+                    })
+                    message(res.msg)
+                }
+            })
+        }
+    },
+    onClose() {
+        this.setData({
+            showRegister: false
+        })
+    },
+    palyVideo: function () {
+        this.setData({
+            showPlayBtn: false
+        })
+        this.videoContext.play()
+    },
+    closeReg: function (e) {
+        this.setData({
+            showRegister: e.detail.data,
+            isScroll: true
+        })
+    },
+    handleDown() {
+        this.setData({
+            showDown: false,
+            isAuto: true
+        })
+    },
+    handlePull() {
+        this.setData({
+            showDown: true,
+            isAuto: false
+        })
+    },
+    getTeacherDetail() {
+        req.home.getTeacherDetail({
+                teacher_id: this.data.teacherID
+            })
+            .then(res => {
+                if (res.status == 0) {
+                    this.setData({
+                        detail: res.data.teacherInfo
+                    })
+                    wx.createSelectorQuery().select('#aboutInner').boundingClientRect(rect => {
+                        if (rect.height > 200) {
+                            this.setData({
+                                isShowBTn: true,
+                            })
+                        }
+                    }).exec()
+                }
+            })
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.setData({
+            teacherID: options.id
+        })
+        wx.setNavigationBarTitle({
+            title: '个人主页'
+        })
+        this.getTeacherDetail()
+    },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady(res) {
+        this.videoContext = wx.createVideoContext('myVideo')
+    },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {},
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {},
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {},
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {},
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {},
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {}
+})

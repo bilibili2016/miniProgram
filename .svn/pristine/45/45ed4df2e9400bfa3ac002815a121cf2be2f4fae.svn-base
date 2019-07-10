@@ -1,0 +1,80 @@
+function install(req, request) {
+    req.profile = {
+        // 话题列表
+        questionList(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/questionList`,
+                method: 'GET',
+                data,
+            }, false);
+        },
+        // 标签列表
+        tagList(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/tagList`,
+                method: 'GET',
+                data,
+            }, false);
+        },
+        // 已选标签列表
+        tagSelect(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/tagSelect`,
+                method: 'GET',
+                data,
+            }, false);
+        },
+        // 选择标签
+        setTags(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/setTags`,
+                method: 'POST',
+                data,
+            }, false);
+        },
+        //设置话题
+        setQuestion(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/setQuestion`,
+                method: 'POST',
+                data,
+            }, false);
+        },
+        // 我的预约列表
+        myBespokeOfflineList(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/myBespokeOfflineList`,
+                method: 'GET',
+                data,
+            }, false);
+        },
+        // 设置预约时间
+        setBespokeTime(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/setBespokeTime`,
+                method: 'POST',
+                data,
+            }, false);
+        },
+        // 设置预约时间
+        getTeacherInfoByUser(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/getTeacherInfoByUser`,
+                method: 'GET',
+                data,
+            }, false);
+        },
+        // 我的
+        myInfo(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/myInfo`,
+                method: 'GET',
+                data,
+            }, false);
+        },
+    };
+}
+
+module.exports = {
+    install,
+};

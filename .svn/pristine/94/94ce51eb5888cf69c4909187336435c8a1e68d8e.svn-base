@@ -1,0 +1,152 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"appid": "wx058df4e345ecb971",
+	"projectname": "1911miniprogram",
+	"libVersion": "2.2.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 14,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "chat",
+					"pathName": "pages/consult/chat/chat",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "detail",
+					"pathName": "pages/home/professor/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "appointment",
+					"pathName": "pages/home/appointment/appointment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "首页",
+					"pathName": "pages/home/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "我的",
+					"pathName": "pages/consult/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "在线咨询",
+					"pathName": "pages/consult/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "myAppointment",
+					"pathName": "pages/user/myAppointment/myAppointment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "chat",
+					"pathName": "pages/consult/chat/chat",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "setAppointment",
+					"pathName": "pages/user/setAppointment/setAppointment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动",
+					"pathName": "pages/home/activity/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "教师详情",
+					"pathName": "pages/home/professor/detail/detail",
+					"query": "id=213",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的预约",
+					"pathName": "pages/user/myAppointment/myAppointment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/user/myCollection/myCollection",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

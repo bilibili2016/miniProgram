@@ -1,0 +1,95 @@
+<!-- miniprogram/pages/professor/detail/detail.wxml -->
+<!-- <scroll-view class="container"> -->
+<view class="professorDetai" scroll-y="{{isScroll}}">
+    <button class="collect {{detail.is_collection?'collected':''}}" open-type="getUserInfo" hover-class="none" bindgetuserinfo="bindGetUserInfo" data-id="3">
+        <van-icon size="50rpx" wx:if="{{detail.is_collection}}" name="like" />
+        <van-icon size="50rpx" wx:else name="like-o" />
+    </button>
+    <view class="picture">
+        <view class="shadow"></view>
+        <image wx:if="{{detail.picture}}" class="bannerImg" src="{{detail.picture}}"></image>
+        <image wx:else class="bannerImg" src="https://h5-image.1911edu.com/miniProgram-default.png"></image>
+    </view>
+    <view class="info">
+        <view class="head">
+            <image class="headImg" src="{{detail.head_img}}"></image>
+        </view>
+        <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号</button> -->
+        <text class="name">{{detail.teacher_name}}</text>
+        <view class="desc">{{detail.graduate}}</view>
+        <!-- <view class="infoVideo">
+        <view class="infoCover" wx:if="{{showPlayBtn}}">
+          <image src="{{detail.picture}}"></image>
+        </view>
+        <view class="playBtn"   wx:if="{{showPlayBtn}}" bindtap="palyVideo">
+          <van-icon name="play-circle-o" />
+        </view>
+        <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+      </view> -->
+        <view class="numbers" wx:if="{{userInfo.id==detail.user_id}}">
+            <view class="item">
+                <text class="num">{{detail.ask_num}}</text>
+                <text class="text">访问量</text>
+                <text class="line"></text>
+            </view>
+            <view class="item">
+                <text class="num">{{detail.collection_num}}</text>
+                <text class="text">关注量</text>
+                <text class="line"></text>
+            </view>
+            <view class="item">
+                <text class="num">{{detail.consultation_num}}</text>
+                <text class="text">咨询数</text>
+            </view>
+        </view>
+    </view>
+    <view class="about {{isAuto?'autoHeight':'selfHeight'}}">
+        <view class="viewTitle">关于我</view>
+        <view class="text" id="aboutInner">
+            <view>{{detail.content}}</view>
+        </view>
+        <view wx:if="{{isShowBTn}}">
+            <view wx:if="{{showDown}}" class="down" bindtap="handleDown">
+                <view class="top"></view>
+                <view class="all">
+                    展开全部
+                    <van-icon name="arrow-down" />
+                </view>
+            </view>
+            <view wx:if="{{!showDown}}" class="pull" bindtap="handlePull">
+                收起
+                <van-icon name="arrow-up" />
+            </view>
+        </view>
+    </view>
+    <view class="topics">
+        <view class="topic" wx:if="{{detail.questionLeft.length!=0}}">
+            <view class="viewTitle">擅长话题</view>
+            <view class="inner">
+                <view class="item" wx:for="{{detail.questionLeft}}" wx:key="{{index}}">
+                    <view class="subTitle">{{item.title}}</view>
+                    <view class="text">{{item.content}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="operate" wx:if="{{userInfo.id!=detail.user_id}}" style="padding-bottom:{{padding}}">
+        <!-- <view class="left">
+            <button class="inner" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" data-id="1" hover-class="none">
+                <text class="text">约TA见面</text>
+                <view class="line"></view>
+            </button>
+            <view class="price">
+                <text class="icon">¥</text>
+                <text class="num">{{detail.price}}</text>
+                <text class="time">/小时</text>
+            </view>
+        </view> -->
+        <button class="right" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" data-id="2" hover-class="none">
+            向TA咨询
+        </button>
+    </view>
+</view>
+<register wx:if="{{ showRegister }}" bind:close="onClose" bind:success="onSuccess"></register>
+<buy-pop id="buyPop" wx:if="{{isShowBuy}}" bind:close='closeBuy' bind:paySuccess='payment'></buy-pop>
+<!-- </scroll-view> -->

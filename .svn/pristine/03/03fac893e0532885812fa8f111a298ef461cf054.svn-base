@@ -1,0 +1,31 @@
+module.exports = {
+    /**
+     * 提示消息
+     * text 内容
+     * type 'success'
+     * time 默认4000ms
+     */
+    message: function (text, type = 'none', time = 4000) {
+        wx.showToast({
+            title: text,
+            icon: type,
+            duration: time
+        })
+    },
+    /**
+     * 获取元素的高度
+     * 元素id
+     */
+    height: function (selector) {
+        let n = 0;
+        let m = wx.createSelectorQuery().select(`#${selector}`).boundingClientRect(rect => {
+            console.log(n, rect.height, '1');
+
+            n = rect.height
+            console.log(n, rect.height, '2');
+        }).exec()
+        console.log(m);
+
+        // return n, m
+    }
+}

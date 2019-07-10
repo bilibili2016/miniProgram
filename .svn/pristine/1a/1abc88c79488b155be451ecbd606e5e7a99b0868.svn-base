@@ -1,0 +1,26 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "base-64": {
+      "version": "0.1.0",
+      "resolved": "https://registry.npmjs.org/base-64/-/base-64-0.1.0.tgz",
+      "integrity": "sha1-eAqZyE59YAJgNhURxId2E78k9rs="
+    },
+    "vant-weapp": {
+      "version": "0.5.14",
+      "resolved": "https://registry.npmjs.org/vant-weapp/-/vant-weapp-0.5.14.tgz",
+      "integrity": "sha512-Uv+Y6Ki2roy5+9WammDEdWd2oOZw2XnQsZ0jpPecp763NHqHGOdT8cUZEKCNvqS+FQFt/NN4umcDMZqWEvNE1w=="
+    },
+    "we-cropper": {
+      "version": "1.3.7",
+      "resolved": "https://registry.npmjs.org/we-cropper/-/we-cropper-1.3.7.tgz",
+      "integrity": "sha512-pJBdnPmiEpbPV2UEtnZqoHM4TDODHdUipBY61UNVlXMSRwNTFaBUfRtrBuy6cFJav5evNDyTMgFxrhyLb/Qz0A==",
+      "requires": {
+        "base-64": "^0.1.0"
+      }
+    }
+  }
+}

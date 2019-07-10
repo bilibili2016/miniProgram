@@ -1,0 +1,7 @@
+<view class="intro">
+  <view class="con">
+    <textarea name="" id="" cols="30" rows="10" auto-height="true" maxlength="200" value="{{remark}}" placeholder="请介绍一下自己～" bindinput="bindinput"></textarea>
+    <text class="reset">{{inputLen}}/200</text>
+  </view>
+  <view class="btn" bindtap="submit">提交</view>
+</view>

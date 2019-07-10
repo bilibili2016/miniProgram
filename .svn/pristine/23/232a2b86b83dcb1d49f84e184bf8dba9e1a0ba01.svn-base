@@ -1,0 +1,38 @@
+/* components/common/noData/noData.wxss */
+/* pages/home/activity/success/success.wxss */
+.success {
+    width: 100%;
+    text-align: center;
+}
+
+.success image {
+    /* width: 188rpx; */
+    margin-top: 135rpx;
+}
+
+.title {
+    font-size: 50rpx;
+    color: #303030;
+    font-weight: bold;
+}
+
+.desc {
+    display: inline-block;
+    width: 530rpx;
+    margin: 40rpx auto 50rpx;
+    font-size: 30rpx;
+    color: #87868B;
+    line-height: 42rpx;
+}
+
+.btn {
+    margin: 0 auto;
+    width: 260rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    border-radius: 44rpx;
+    border: 2rpx solid #6317A5;
+    text-align: center;
+    color: #6317A5;
+    font-size: 32rpx;
+}

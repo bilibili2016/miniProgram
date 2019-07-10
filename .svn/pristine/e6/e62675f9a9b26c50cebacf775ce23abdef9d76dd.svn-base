@@ -1,0 +1,98 @@
+<view class="user">
+    <view class="mine" wx:if="{{!isTeacher}}">
+        <view class="actvList" wx:for="{{activityList}}" wx:key="{{index}}" data-id="{{item.question_activity_id}}" bindtap="handleActive">
+            <view class="desc">活动</view>
+            <image class="cover" src="{{item.picture}}" />
+            <view class="word">
+                <image src="https://h5-image.1911edu.com/miniProgram-people.png" />
+                <text class="people">{{item.total_num}}</text>
+                <text class="text">人正在参与此活动</text>
+            </view>
+            <view class="time">
+                <van-icon size="40rpx" class='icon' name="clock-o" />
+                <view class="clock">{{item.create_time}}</view>
+            </view>
+        </view>
+        <view class="appoList">
+            <view class="item" wx:for="{{appoList}}" wx:key="list{{index}}">
+                <view class="info clearfix">
+                    <view class="fl">
+                        <image class="headImg" src="{{item.teacher_head_img}}"></image>
+                    </view>
+                    <view class="fr">
+                        <text class="name">{{item.teacher_name}}</text>
+                        <!-- <text class="flag">{{item.graduate}}</text> -->
+                        <view class="status confirming" wx:if="{{item.result_status==1}}">
+                            预约确认中
+                        </view>
+                        <view class="status confirming" wx:if="{{item.result_status==2}}">已确认</view>
+                        <view class="status finished" wx:if="{{item.result_status==3}}">已完成</view>
+                        <view class="status finished" wx:if="{{item.result_status==4}}">取消预约</view>
+                        <view class="desc">{{item.graduate}}</view>
+                    </view>
+                </view>
+                <view class="log">
+                    <view wx:for="{{item.teacherBespokeQuestionList}}" wx:key="child{{index}}" wx:for-item="question">
+                        <image src="https://h5-image.1911edu.com/miniProgram-icon1.png"></image>
+                        {{question.title}}
+                    </view>
+                </view>
+                <view class="line"></view>
+                <view class="operate">
+                    <view class="time">
+                        <van-icon name="clock-o" />
+                        <text wx:if="{{item.result_status==1}}">待定</text>
+                        <text wx:else>{{item.date_time}}{{item.between_time}}</text>
+                    </view>
+                    <view class="btn">
+                        <view class="cancle" wx:if="{{item.result_status==1 || item.result_status==2}}" bind:tap="cancelBespoke" data-id="{{item.id}}">
+                            取消预约
+                        </view>
+                        <view class="pay" wx:if="{{item.result_status==2}}" bind:tap="buyBespoke" data-id="{{item.id}}">
+                            去支付
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:else class="teacherList">
+        <view class="item" wx:for="{{appoList}}" wx:key="list{{index}}">
+            <view class="info clearfix">
+                <view>
+                    <text class="name">与学堂用户{{item.student_name}}的预约</text>
+                    <text class="status confirming" wx:if="{{item.result_status==1}}">待确认</text>
+                    <text class="status confirmed" wx:if="{{item.result_status==2}}">已确认</text>
+                    <text class="status confirmed" wx:if="{{item.result_status==3}}">已完成</text>
+                    <text class="status cancel" wx:if="{{item.result_status==4}}">已取消</text>
+                </view>
+            </view>
+            <view class="log">
+                <view wx:for="{{item.teacherBespokeQuestionList}}" wx:key="child{{index}}" wx:for-item="question">
+                    <image src="https://h5-image.1911edu.com/mini-%23icon.png"></image>
+                    <text>{{question.title}}</text>
+                </view>
+            </view>
+            <view class="operate">
+                <view class="time">
+                    <van-icon name="clock-o" />
+                    {{item.date_time}} {{item.between_time}}
+                </view>
+                <view class="address">
+                    <van-icon name="location-o" />
+                    {{item.city}}
+                </view>
+                <view class="btn" wx:if="{{item.result_status==1}}">
+                    <view class="cancle" bind:tap="cancelBespoke" data-id="{{item.id}}">取消</view>
+                    <view class="confirmBtn" bind:tap="comfirmBespoke" data-id="{{item.id}}">
+                        确认
+                    </view>
+                </view>
+                <!-- <view class="btn" wx:if="{{item.result_status==4}}">
+                    <view class="cancle" bind:tap="deleteBespoke" data-id="{{item.id}}">删除</view>
+                </view> -->
+            </view>
+        </view>
+    </view>
+    <no-data wx:if="{{appoList.length==0}}" noData="{{noData}}"></no-data>
+</view>

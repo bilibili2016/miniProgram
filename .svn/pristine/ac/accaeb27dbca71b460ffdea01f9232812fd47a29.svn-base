@@ -1,0 +1,52 @@
+/* miniprogram/pages/user/beTeacher/introduction/introduction.wxss */
+page {
+    height: 100%
+}
+
+.intro {
+    width: 100%;
+    height: 100%;
+    background-color: #F5F5F5;
+    padding-top: 20rpx;
+    box-sizing: border-box;
+
+}
+
+.intro .con {
+    position: relative;
+    width: 100%;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.con textarea {
+    width: 100%;
+    height: 460rpx !important;
+    overflow-y: auto;
+    /* min-height: 360rpx; */
+    font-size: 28rpx;
+    color: #303030;
+    padding: 40rpx 35rpx;
+    box-sizing: border-box;
+}
+
+.reset {
+    position: absolute;
+    right: 35rpx;
+    bottom: 30rpx;
+    font-size: 24rpx;
+    color: #ADADAD;
+}
+
+.btn {
+    width: 686rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background-color: #6317A5;
+    margin: 80rpx auto 50rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    border-radius: 10rpx;
+
+}

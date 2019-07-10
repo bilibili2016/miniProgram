@@ -1,0 +1,43 @@
+<view class="setAppointment">
+    <view class="switch clearfix">
+        <view class="text fl">线下约谈设置</view>
+        <view class="fr">
+            <van-switch size="40rpx" active-color="#6317A5" checked="{{ isSwitch }}" bind:change="onChange" />
+        </view>
+    </view>
+    <view class="content">
+        <view class="price clearfix">
+            <view class="title fl">价格设置</view>
+            <view class="input fl">
+                <input bindinput="changeInput" value="{{price}}" type="digit" />
+                <text>元/小时</text>
+            </view>
+        </view>
+        <!-- 日历面板 -->
+        <calendar circle_show="{{false}}" speciallist="{{speciallist}}" closelasparametertstyle="{{true}}" bindselectDate="dayClick" />
+        <view class="select clearfix">
+            <view class="fl">开始时间</view>
+            <view class="border right fl">
+                <picker mode="selector" bindchange="bindPickerStart" value="{{index}}" range="{{startTime}}">
+                    {{startTime[startIndex]}}
+                </picker>
+                <view class="time">{{selectStartTime}}</view>
+            </view>
+            <view class="fl">结束时间</view>
+            <view class="border fl">
+                <picker mode="selector" bindchange="bindPickerEnd" value="{{index}}" range="{{endTime}}">
+                    {{endTime[endIndex]}}
+                </picker>
+                <view class="time">{{selectEndTime}}</view>
+            </view>
+        </view>
+        <view class="word">
+            <view>1.您可以通过选择开始日期与结束日期进行批量设置；</view>
+            <view>2.您可以选择某一日期进行单独设置；</view>
+            <view>3.已确认的预约无法更改当天的预约价格；</view>
+            <view>4.为更好的获得预约订单，请您合理设置预约价格。</view>
+        </view>
+        <view class="red">查看更多专家攻略 ></view>
+        <view class="commit" bind:tap="setBespokeTime">提交</view>
+    </view>
+</view>

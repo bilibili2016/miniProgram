@@ -1,0 +1,7 @@
+<!-- pages/home/activity/success/success.wxml -->
+<view class='success'>
+  <image src='https://h5-image.1911edu.com/mini-success.png' mode='widthFix'></image>
+  <view class='title'>报名成功</view>
+  <text class='desc'>报名成功后会有活动小哥哥与您联系， 请保持手机畅通！</text>
+  <view class="btn">查看我的活动</view>
+</view>

@@ -1,0 +1,108 @@
+// miniprogram/pages/professor/detail/detail.js
+Page({
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        showDown: true,
+        aboutHeight: '600rpx',
+        ablutHidden: 'hidden',
+        showRegister: false,
+        showPlayBtn: true,
+        videoContext: '',
+        isScroll: true
+    },
+    onClose() {
+        this.setData({
+            showRegister: false,
+            isScroll: true
+        })
+    },
+    palyVideo: function () {
+        this.setData({
+            showPlayBtn: false
+        })
+        this.videoContext.play()
+    },
+    ask: function () {
+        // this.showRegister = this.selectComponent("#showRegister")
+        // this.showRegister.showView()
+        this.setData({
+            showRegister: true,
+            isScroll: false
+        })
+    },
+    closeReg: function (e) {
+        this.setData({
+            showRegister: e.detail.data,
+            isScroll: true
+        })
+    },
+    getPhoneNumber(e) {
+        console.log(e.detail.errMsg)
+        console.log(e.detail.iv)
+        console.log(e.detail.encryptedData)
+        if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+            this.ask()
+        } else {
+            // 允许使用用户手机号 可以进行下一步操作
+        }
+    },
+    handleDown() {
+        this.setData({
+            showDown: false,
+            aboutHeight: 'auto',
+            ablutHidden: 'inherit'
+        })
+    },
+    handlePull() {
+        this.setData({
+            showDown: true,
+            aboutHeight: '600rpx',
+            ablutHidden: 'hidden'
+        })
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        wx.setNavigationBarTitle({
+            title: '个人主页'
+        })
+    },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady(res) {
+        this.videoContext = wx.createVideoContext('myVideo')
+    },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {},
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {},
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {},
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {},
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {},
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {}
+})

@@ -1,0 +1,30 @@
+<view class="user">
+  <view class="bottom">
+    <view class="list">
+      <view class="item img" bindtap="uploadImg">
+        <view class="itemCon">
+          <!-- <van-icon class="leftIcon" name="notes-o" /> -->
+          <text class="inner">头像</text>
+          <view class="rightIcon">
+            <image class="headImg" src="https://h5-image.1911edu.com/mini-myIcon3.png"></image>
+            <van-icon class="icon" name="arrow" />
+          </view>
+        </view>
+      </view>
+      <view class="item" wx:for="{{itemList}}" wx:key="{{index}}" data-url="{{item.url}}" bindtap="handleLink">
+        <view class="itemCon">
+          <!-- <van-icon class="leftIcon" name="notes-o" /> -->
+          <text class="inner">{{item.title}}</text>
+          <view class="rightIcon">
+            <view class="rightInfo">北京市海淀区</view>
+            <view wx:if="{{item.title!='学号'}}">
+              <van-icon class="icon" name="arrow" />
+            </view>
+            <view wx:else class="noIcon"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btn" bindtap="save">保存</view>
+  </view>
+</view>

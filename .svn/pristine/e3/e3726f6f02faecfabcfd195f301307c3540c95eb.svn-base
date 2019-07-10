@@ -1,0 +1,5 @@
+<view class="intro">
+  <view class="con">
+    <textarea name="" id="" cols="30" rows="10" placeholder="个人介绍"></textarea>
+  </view>
+</view>

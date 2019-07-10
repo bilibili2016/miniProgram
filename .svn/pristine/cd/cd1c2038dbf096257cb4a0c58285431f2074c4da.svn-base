@@ -1,0 +1,89 @@
+<!-- miniprogram/pages/professor/detail/detail.wxml -->
+<scroll-view class="container" scroll-y="{{isScroll}}">
+  <view class="professorDetai">
+    <image class="bannerImg" src="{{detail.picture}}"></image>
+    <view class="info">
+      <view class="head">
+        <image class="headImg" src="{{detail.head_img}}"></image>
+      </view>
+      <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号</button> -->
+      <text class="name">{{detail.teacher_name}}</text>
+      <view class="desc">{{detail.graduate}}</view>
+      <!-- <view class="infoVideo">
+        <view class="infoCover" wx:if="{{showPlayBtn}}">
+          <image src="{{detail.picture}}"></image>
+        </view>
+        <view class="playBtn"   wx:if="{{showPlayBtn}}" bindtap="palyVideo">
+          <van-icon name="play-circle-o" />
+        </view>
+        <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+      </view> -->
+      <view class="numbers">
+        <view class="item">
+          <text class="num">932</text>
+          <text class="text">访问量</text>
+          <text class="line"></text>
+        </view>
+        <view class="item">
+          <text class="num">3208</text>
+          <text class="text">关注量</text>
+          <text class="line"></text>
+        </view>
+        <view class="item">
+          <text class="num">932</text>
+          <text class="text">咨询数</text>
+        </view>
+      </view>
+    </view>
+    <view class="about {{isAuto?'autoHeight':'selfHeight'}}" >
+      <view class="viewTitle">关于我</view>
+      <view class="text" id="aboutInner">
+        <view>{{detail.content}}</view>
+      </view>
+     <view wx:if="{{isShowBTn}}">
+        <view wx:if="{{showDown}}" class="down" bindtap="handleDown">
+          <view class="top"></view>
+          <view class="all">
+            展开全部
+            <van-icon name="arrow-down" />
+          </view>
+        </view>
+        <view wx:if="{{!showDown}}" class="pull" bindtap="handlePull">
+          收起
+          <van-icon name="arrow-up" />
+        </view>
+     </view>
+    </view>
+    <view class="topic" wx:if="{{detail.questionLeft.length!=0}}">
+      <view class="viewTitle">擅长话题</view>
+      <view class="inner">
+        <view class="item" wx:for="{{detail.questionLeft}}">
+          <view class="subTitle">{{item.title}}</view>
+          <view class="text">{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="operate">
+      <view class="left" bindtap="handleLink">
+        <view class="inner">
+          <text class="text">约TA见面</text>
+          <view class="line"></view>
+        </view>
+        <view class="price">
+          <text class="icon">¥</text>
+          <text class="num">1888</text>
+          <text class="time">/小时</text>
+        </view>
+      </view>
+      <button class="right" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        向TA咨询
+      </button>
+      <!-- <view class="right" bind:tap="ask">向TA咨询</view> -->
+    </view>
+    <view class="registerMask" wx:if="{{showRegister}}">
+        <van-popup class="applyPop" show="{{ showRegister }}" overlay="{{true}}" position="bottom" bind:close="onClose">
+          <register id="showRegister" bind:myevent="onGetCode" bind:closeReg="closeReg"></register>
+        </van-popup>
+    </view>
+  </view>
+</scroll-view>

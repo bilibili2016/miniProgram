@@ -1,0 +1,165 @@
+.consultList {
+    padding-bottom: 100rpx;
+}
+
+.vip {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #FF4A3A;
+    font-size: 28rpx;
+    background: rgba(255, 244, 229, 1);
+}
+
+.teacherList {
+    padding: 30rpx 30rpx 0;
+}
+
+.teacher {
+    padding-left: 120rpx;
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+.teacher:last-child {
+    margin: 0;
+}
+
+.teacher .info {
+    position: relative;
+}
+
+.image {
+    position: absolute;
+    left: -118rpx;
+    top: 0;
+}
+
+.teacher .info .headImg {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+}
+
+.teacher .info .name {
+    font-size: 24rpx;
+    color: #87868B;
+    margin: 6rpx;
+    max-width: 535rpx;
+}
+
+.teacher .info .name .teacherName {
+    font-size: 30rpx;
+    color: #303030;
+    width: 100%;
+}
+
+.teacher .info .number {
+    height: 28rpx;
+    line-height: 28rpx;
+    padding: 0 15rpx;
+    border-radius: 14rpx;
+    background-color: #FF4A3A;
+    color: #fff;
+    font-size: 24rpx;
+    border: 2rpx splid #fff;
+    position: absolute;
+    left: 68rpx;
+    top: 0;
+}
+
+.teacher .delete {
+    font-size: 34rpx;
+    color: #C1C1C3;
+    position: absolute;
+    top: 6rpx;
+    right: 0;
+}
+
+.tag {
+    font-size: 24rpx;
+    color: #303030;
+    margin: 10rpx 0;
+}
+
+.tag image {
+    width: 22rpx;
+    height: 20rpx;
+    margin-right: 12rpx;
+}
+
+.tag .icon {
+    color: #303030;
+}
+
+.tag:last-child {
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #E0E0E1;
+}
+
+.floor {
+    color: #C1C1C3;
+    margin-top: 40rpx;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.floor::after,
+.floor::before {
+    content: "";
+    display: inline-block;
+    width: 50rpx;
+    height: 2rpx;
+    vertical-align: middle;
+    background-color: #D8D8D8;
+}
+
+.floor::after {
+    margin-left: 20rpx;
+}
+
+.floor::before {
+    margin-right: 20rpx;
+}
+
+
+.myTeacher .techerName {
+    color: #303030;
+    font-size: 32rpx;
+}
+
+.myTeacher .techerName .fr {
+    color: #87868B;
+    font-size: 24rpx;
+}
+
+.word {
+
+    margin: 20rpx 0 0;
+    padding-bottom: 36rpx;
+    border-bottom: 1px solid #E0E0E1;
+}
+
+.word .lastWord {
+    display: inline-block;
+    color: #87868B;
+    font-size: 26rpx;
+    width: 460rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.word .msg {
+    display: inline-block;
+    width: auto;
+    height: 28rpx;
+    line-height: 28rpx;
+    padding: 0 15rpx;
+    border-radius: 14rpx;
+    background-color: #FF4A3A;
+    color: #fff;
+    font-size: 24rpx;
+    border: 2rpx splid #fff;
+}

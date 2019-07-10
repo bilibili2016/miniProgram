@@ -1,0 +1,153 @@
+.appointment {}
+
+.appointment .teacher {
+    padding: 0 32rpx;
+    display: flex;
+}
+
+.appointment .teacher .headImg {
+    width: 90rpx;
+    height: 90rpx;
+    margin-right: 30rpx;
+    border-radius: 50%;
+}
+
+.appointment .teacher .name {
+    flex: 1;
+    font-size: 30rpx;
+    color: #303030;
+}
+
+.appointment .teacher .duration {
+    margin-top: 13rpx;
+    color: #87868B;
+    font-size: 24rpx;
+}
+
+.progress {
+    padding: 0 32rpx;
+}
+
+.date .timeList {
+    padding: 0 30rpx 30rpx;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.date .timeList view {
+    width: 215rpx;
+    height: 76rpx;
+    line-height: 76rpx;
+    border-radius: 38rpx;
+    border: 1rpx solid #C1C1C3;
+    font-size: 30rpx;
+    color: #303030;
+    text-align: center;
+    margin-bottom: 22rpx;
+    margin-right: auto;
+}
+
+.date .timeList view.checked {
+    border: 1rpx solid #6317A5;
+    background-color: #FBF6FF;
+    color: #6317A5;
+}
+
+.date .timeList view.disable {
+    background-color: #F5F5F5;
+    border-color: #F5F5F5;
+}
+
+.address {
+    padding: 0 32rpx 30rpx;
+}
+
+.address .section {
+    display: flex;
+    justify-content: space-between;
+    line-height: 82rpx;
+    font-size: 30rpx;
+    color: #303030;
+    margin-bottom: 30rpx;
+}
+
+.address .section input {
+    width: 535rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    border: 1rpx solid #E0E0E1;
+    border-radius: 10rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.address .section textarea {
+    width: 535rpx;
+    height: 228rpx;
+    padding: 25rpx 20rpx;
+    border: 1rpx solid #E0E0E1;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+}
+
+.address .rules {
+    padding-left: 160rpx;
+    color: #ADADAD;
+    font-size: 24rpx;
+    vertical-align: middle;
+}
+
+.address .rules van-icon {
+    vertical-align: middle;
+    margin-right: 8rpx;
+}
+
+.proce {
+    background-color: #F5F5F5;
+    padding: 0 32rpx 40rpx;
+}
+
+.allPrice {
+    padding: 40rpx 0 10rpx;
+    text-align: right;
+    line-height: 30rpx;
+}
+
+.allPrice .one {
+    color: #87868B;
+    font-size: 24rpx;
+}
+
+.allPrice .two {
+    color: #303030;
+    font-size: 28rpx;
+}
+
+.allPrice .three {
+    color: #FF4A3A;
+    font-size: 24rpx;
+}
+
+.allPrice .fore {
+    color: #FF4A3A;
+    font-size: 38rpx;
+}
+
+.pay {
+    color: #303030;
+    font-size: 26rpx;
+    text-align: right;
+    margin-top: 10rpx;
+}
+
+.order {
+    background-color: #6317A5;
+    width: 100%;
+    height: 94rpx;
+    line-height: 94rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 32rpx;
+}

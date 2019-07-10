@@ -1,0 +1,15 @@
+function install(req, request) {
+  req.user = {
+    questionList(data) {
+      return request({
+        url: `${req.apiUrl}/Miniprogram/User/questionList`,
+        method: 'GET',
+        data,
+      }, false);
+    }
+  };
+}
+
+module.exports = {
+  install,
+};

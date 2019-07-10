@@ -1,0 +1,45 @@
+<view class="appointment">
+    <view class="teacher">
+        <image class="headImg" src="https://image.1911edu.com/1531716858" />
+        <view class="name">
+            <view>周超</view>
+            <view class="duration">人力公司总经理，职业指导师服务专家</view>
+        </view>
+    </view>
+    <view class="progress">
+        <van-steps steps="{{ steps }}" active="{{ active }}" active-color="#6317A5" />
+    </view>
+    <view class="date">
+        <view class="week"></view>
+        <view class="dataList"></view>
+        <view class="timeList">
+            <view wx:for="{{timeList}}" wx:key="index" class="{{disableList.indexOf(item.id)>-1?'disable':''}}{{checkList.indexOf(item.id)>-1?'checked':''}}" data-id="{{item.id}}" bind:tap="bindCheck">
+                {{item.time}}
+            </view>
+        </view>
+    </view>
+    <view class="address">
+        <view class="section">
+            <text class="label">约谈城市</text>
+            <input placeholder="请输入您想约谈的城市" value="{{ username }}" placeholder-style="color:#ADADAD;" />
+        </view>
+        <view class="section">
+            <text class="label">约谈话题</text>
+            <textarea placeholder="向专家描述一下咨询的具体内容，方便专家提" value="{{ username }}" placeholder-style="color:#ADADAD;" />
+        </view>
+        <view class="rules">
+            <van-icon name="question" />
+            <text>线下邀约规则</text>
+        </view>
+    </view>
+    <view class="proce">
+        <view class="allPrice">
+            <text class="one">1888元×2小时，</text>
+            <text class="two">总计：</text>
+            <text class="three">￥</text>
+            <text class="fore">3776.00</text>
+        </view>
+        <view class="pay">专家确认后支付</view>
+    </view>
+    <view class="order">免费预约</view>
+</view>

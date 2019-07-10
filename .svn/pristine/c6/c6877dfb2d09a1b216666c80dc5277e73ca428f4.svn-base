@@ -1,0 +1,195 @@
+.input {
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 32rpx;
+    background-color: #fff;
+    border-bottom: 1px solid #EAEAEA;
+    position: relative;
+}
+
+.input .searchIcon {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 60rpx;
+    font-size: 38rpx;
+    color: #BBBBBB;
+    margin-right: 12rpx;
+    margin-top: 6rpx;
+}
+
+.input input {
+    display: inline-block;
+    vertical-align: middle;
+    width: 85%;
+    height: 100%;
+    font-size: 28rpx;
+    color: #333333;
+}
+
+.input .exit {
+    position: absolute;
+    right: 32rpx;
+    top: 0;
+    font-size: 30rpx;
+    color: #ff4a3a;
+}
+
+.searchWord {
+    padding: 0 32rpx;
+}
+
+.searchWord .title {
+    height: 110rpx;
+    line-height: 110rpx;
+    color: #333333;
+    font-size: 30rpx;
+    position: relative;
+    font-weight: 500;
+}
+
+.searchWord .title .iconDelete {
+    width: 36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    position: absolute;
+    top: 42rpx;
+    right: 0;
+}
+
+.historyList .button,
+.hotList .button {
+    float: left;
+    color: #F7F7F7;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 0 30rpx;
+    color: #333333;
+    font-size: 26rpx;
+    margin-right: 20rpx;
+    background-color: #F7F7F7;
+    border-radius: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.hotList .button .fire {
+    width: 28rpx;
+    height: 26rpx;
+    color: #FF4A3A;
+}
+
+.teacherList {
+    padding: 20rpx 32rpx 0;
+}
+
+.teacher {
+    border-bottom: 1rpx solid #E0E0E1;
+    margin-bottom: 30rpx;
+}
+
+.teacher:last-child {
+    margin: 0;
+    margin-bottom: 0;
+}
+
+.teacher .info {
+    display: flex;
+}
+
+.teacher .info image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+}
+
+.teacher .info .name {
+    flex: 1;
+    font-size: 24rpx;
+    color: #87868B;
+    margin: 6rpx;
+}
+
+.teacher .info .name .teacherName {
+    font-size: 30rpx;
+    color: #303030;
+}
+
+.teacher .info .name view {
+    width: 560rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.buttonList {
+    width: 100%;
+    margin: 24rpx 0;
+}
+
+.buttonList text {
+    display: inline-block;
+    padding: 0 25rpx;
+    color: #87868B;
+    font-size: 24rpx;
+    background-color: #F5F6F6;
+    margin-left: 20rpx;
+    height: 40rpx;
+    line-height: 14rpx;
+    text-align: center;
+    border-radius: 20rpx;
+}
+
+.buttonList text:first-child {
+    margin: 0;
+}
+
+.tag {
+    font-size: 24rpx;
+    color: #303030;
+    margin: 10rpx 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tag image {
+    width: 22rpx;
+    height: 20rpx;
+    margin-right: 12rpx;
+}
+
+.order {
+    margin: 20rpx 0 30rpx;
+    font-size: 27rpx;
+    color: #87868B;
+}
+
+.order .fl .people {
+    display: inline-block;
+    color: #F6463D;
+}
+
+.order .fr {
+    width: 130rpx;
+    height: 52rpx;
+    line-height: 52rpx;
+    background: #FE7918;
+    border-radius: 36rpx;
+    color: #fff;
+    font-size: 30rpx;
+    text-align: center;
+}
+
+.noSearch {
+    padding: 100rpx 0 0;
+    color: #BBBBBB;
+    line-height: 200rpx;
+    text-align: center;
+}
+
+.noSearch image {
+    width: 500rpx;
+    display: block;
+    margin: 0 auto;
+}

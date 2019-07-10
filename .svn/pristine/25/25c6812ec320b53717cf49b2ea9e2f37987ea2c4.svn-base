@@ -1,0 +1,38 @@
+<view class="register">
+    <!-- <van-popup show="{{ true }}" overlay-style="background-color:rbga(0,0,0,0.5);opacity:1;" close-on-click-overlay="{{true}}" position="bottom" bind:close="onClose" class="form"> -->
+    <view class="content">
+        <view class="title clearfix">
+            <view class="titleName">用户注册</view>
+            <view class="icon">
+                <van-icon size="40rpx" name="cross" bind:tap="onClose"></van-icon>
+            </view>
+        </view>
+        <form bindsubmit="formSubmit" bindreset="formReset">
+            <view class="info">
+                <!-- <view class="section">
+                    <input name="name" placeholder="请填写您的姓名" placeholder-style="#C1C1C3" />
+                </view> -->
+                <view class="section">
+                    <input name="phone" type="number" placeholder="请填写您的手机号" placeholder-style="#C1C1C3" bindinput="inputPhone" />
+                </view>
+                <view class="section code">
+                    <input name="code" placeholder="请填写短信验证码" placeholder-style="#C1C1C3" bindinput="inputCode" />
+                    <view class="sectionCode" bind:tap="getCode">
+                        {{countDown==61?'获取验证码':countDown}}
+                    </view>
+                </view>
+            </view>
+            <button class="getPhone" open-type="getPhoneNumber" bindgetphonenumber="inputPhone">
+                获取用户手机号
+            </button>
+            <view class="desc">
+                <text>注册即视为您已阅读并同意</text>
+                <text class="pro">《1911学堂用户协议》</text>
+            </view>
+            <view class="applyBtn">
+                <button form-type="submit">提交</button>
+            </view>
+        </form>
+    </view>
+    <!-- </van-popup> -->
+</view>

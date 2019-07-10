@@ -1,0 +1,15 @@
+function install(req, request) {
+  req.home = {
+    getBannerList(data) {
+      return request({
+        url: `${req.apiUrl}/index.php/Miniprogram/Index/bannerList`,
+        method: 'GET',
+        data,
+      }, false);
+    }
+  };
+}
+
+module.exports = {
+  install,
+};

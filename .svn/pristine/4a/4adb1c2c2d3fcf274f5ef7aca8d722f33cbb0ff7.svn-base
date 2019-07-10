@@ -1,0 +1,76 @@
+<view class="user">
+    <!-- 需要使用 button 来授权登录 -->
+    <!-- <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        登录
+    </button> -->
+    <!-- <button wx:if="{{canIUse}}" open-type="getPhoneNumber" bindgetphonenumber="bindGetPhoneNumber">
+        手机号
+    </button> -->
+   <view class="top">
+        <view class="info" wx:if="{{isLogin}}">
+            <!-- <open-data type="userNickName"></open-data> -->
+            <!-- <open-data type="userAvatarUrl"></open-data> -->
+            <view class="text">
+                <text>{{userInfo.nickName}}</text>
+            </view>
+            <view class="headImg">
+                <image src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            </view>
+        </view>
+        <button class="info" wx:else open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+            <view class="headImg">
+                <image src="https://h5-image.1911edu.com/mini-myIcon3.png"></image>
+            </view>
+            <view class="text">登录/注册</view>
+        </button>
+   </view>
+   <view class="bottom">
+        <view class="twos">
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">账户设置</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+            <view class="item wallet">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">我的钱包</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+        </view>
+       <view class="other">
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">主页设置</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">预约设置</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+            <view class="item" bindtap="handleLink">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">我的预约</text>
+                <view class="rightIcon">
+                    <text class="alert">1</text>
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+            <view class="item">
+                <van-icon class="leftIcon" name="notes-o" />
+                <text class="inner">我的邀请码</text>
+                <view class="rightIcon">
+                    <van-icon class="icon" name="arrow" />
+                </view>
+            </view>
+       </view>
+   </view>
+</view>

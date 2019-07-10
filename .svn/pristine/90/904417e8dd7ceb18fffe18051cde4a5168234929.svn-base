@@ -1,0 +1,16 @@
+<view class="user">
+  <view class="activity">
+    <view class="actvList" wx:for="{{activityList}}" wx:key="{{index}}">
+      <image class="cover" src="{{item.cover}}" />
+      <view class="word">
+        <image src="https://h5-image.1911edu.com/mini-userIcon.png" />
+        <text class="people">{{item.number}}</text>
+        <text class="text">人正在参与此活动</text>
+      </view>
+      <view class="time">
+        <van-icon class='icon' name="clock-o" />
+        <text>2019.07.04 13:00</text>
+      </view>
+    </view>
+  </view>
+</view>

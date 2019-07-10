@@ -1,0 +1,11 @@
+<view class="myCode">
+    <image src="{{imgUrl}}" bindload="bindload"></image>
+    <view wx:if="{{loading}}">
+        <button class="btn set" wx:if="{{isSetting}}" open-type="openSetting" bindopensetting='getSetting'>
+            去设置允许访问相册
+        </button>
+        <view wx:else class="btn save" bindtap="saveImg">保存到相册</view>
+        <view class="btn send" bindtap="sendImg">发送到微信</view>
+        <!-- <button class='sendfriend' bindtap='sendfriend' open-type="share">发送给微信好友</button> -->
+    </view>
+</view>

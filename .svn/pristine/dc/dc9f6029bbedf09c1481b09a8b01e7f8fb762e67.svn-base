@@ -1,0 +1,16 @@
+<!-- 标签列表 -->
+<view class="labelList">
+  <view class="item" wx:for="{{tagList}}" wx:key="{{index}}">
+    <view class="title">{{item.tag_name}}</view>
+    <view class="itemCon">
+      <view class="tag {{children.is_sel=='1'?'checked':''}}" wx:for="{{item.children}}" wx:key="{{childIndex}}" wx:for-index="childIndex" wx:for-item="children" data-isSel="{{children.is_sel}}" data-id="{{children.id}}" bindtap="handleTagClick">
+        {{children.tag_name}}
+      </view>
+    </view>
+  </view>
+  <view class="btn">
+    <text class="reset" bindtap="handleReset">重置</text>
+    <text class="finish" bindtap="handleFinish">完成</text>
+  </view>
+  <van-toast id="van-toast" />
+</view>

@@ -1,0 +1,66 @@
+<view class="appointment">
+    <view class="teacher">
+        <image class="headImg" src="https://image.1911edu.com/1531716858" />
+        <view class="name">
+            <view>周超</view>
+            <view class="duration">人力公司总经理，职业指导师服务专家</view>
+        </view>
+    </view>
+    <view class="progress">
+        <van-steps steps="{{ steps }}" active="{{ active }}" active-color="#6317A5" />
+    </view>
+    <view class="date">
+        <!-- <calendar calendar-style="calendar" binddayClick="dayClick" weeks-type="cn" header-style="header" board-style="board" calendar-weeks="weeks" days-color="{{daysColor}}" start-date="2019-06" end-date="2019-07" /> -->
+        <calendar circle_show="{{true}}" closelaststyle="{{true}}" colored="#ccc" mystatus="{{mystatus}}" />
+        <view class="timeList">
+            <view wx:for="{{timeList}}" wx:key="index" class="{{item.select?'checked':''}}{{item.disable?'disable':''}}" data-id="{{item.id}}" data-index="{{index}}" bind:tap="bindCheck">
+                {{item.time}}
+            </view>
+        </view>
+    </view>
+    <view class="address">
+        <view class="section">
+            <text class="label">约谈城市</text>
+            <input placeholder="请输入您想约谈的城市" value="{{ username }}" placeholder-style="color:#ADADAD;" />
+        </view>
+        <view class="section">
+            <text class="label">约谈话题</text>
+            <textarea placeholder="向专家描述一下咨询的具体内容，方便专家提" value="{{ username }}" placeholder-style="color:#ADADAD;margin-top:20rpx;" maxlength="200" bindinput="bindinput" />
+            <view class="length">{{length}}/200</view>
+        </view>
+        <view class="rules" bind:tap="bindShowTips">
+            <van-icon name="question" />
+            <text>线下邀约规则</text>
+        </view>
+    </view>
+    <view class="proce">
+        <view class="allPrice">
+            <text class="one">1888元×2小时，</text>
+            <text class="two">总计：</text>
+            <text class="three">￥</text>
+            <text class="fore">3776.00</text>
+        </view>
+        <view class="pay">专家确认后支付</view>
+    </view>
+    <view class="order">免费预约</view>
+    <view class="tips" wx:if="{{showTips}}">
+        <view class="inner">
+            <view>
+                <view class="title">关于面对面约聊</view>
+                <view class="text">
+                    <view class="line">1.预约成功后，会有专人致电为您安排相关事宜，请保持手机畅通；</view>
+                    <view class="line">2.请在话题描述中充分描述您所希望解决的问题，您的详细资料讲有助于专家提前准备；</view>
+                </view>
+            </view>
+            <view>
+                <view class="title">支付与退款</view>
+                <view class="text">
+                    <view class="line">1.您需要全款支付面谈费用；</view>
+                    <view class="line">2.在确认计划前您可随时取消；</view>
+                    <view class="line">3.确认支付完成后，您将无法取消。</view>
+                </view>
+            </view>
+            <van-icon name="close" size="30px" class="closeIcon" bind:tap="closeTips" />
+        </view>
+    </view>
+</view>

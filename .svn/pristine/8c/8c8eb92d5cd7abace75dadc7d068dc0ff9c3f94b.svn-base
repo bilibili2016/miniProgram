@@ -1,0 +1,7 @@
+<!-- 昵称、真实姓名、邮箱、单位 -->
+<view class="common">
+  <view class="con">
+    <input type="text" placeholder="{{holderText}}" value="{{inputCon}}" bindblur="inputBindblur" bindinput="bindconfirm" confirm-type="done" />
+  </view>
+  <view class="btn" bindtap='save'>保存</view>
+</view>

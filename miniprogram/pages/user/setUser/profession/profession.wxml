@@ -1,0 +1,5 @@
+<view class="profession">
+  <view class="item" wx:for="{{positionList}}" wx:key="{{index}}" data-item="{{item}}" bindtap="clickItem">
+    {{item.position_name}}
+  </view>
+</view>

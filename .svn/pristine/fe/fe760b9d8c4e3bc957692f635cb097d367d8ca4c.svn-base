@@ -1,0 +1,18 @@
+<!-- components/common/noData/noData.wxml -->
+<view class='tabbar' style="padding-bottom:{{padding}}rpx;">
+    <view class="list 111">
+        <view class="one {{index==0?'first':''}}" wx:for="{{list}}" wx:key="{{index}}" bind:tap="handleLink" data-url="{{item.pagePath}}" data-index="{{index}}">
+            <view wx:if="{{index==0}}">
+                <image wx:if="{{active==index+1}}" class="icon" src="{{item.selectedIconPath}}" />
+                <image wx:else class="icon" src="{{item.iconPath}}" />
+                <view class="text {{active==index+1?'checked':''}}">{{item.text}}</view>
+            </view>
+            <button class="info" wx:else open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" hover-class="none">
+                <image wx:if="{{active==index+1}}" class="icon" src="{{item.selectedIconPath}}" />
+                <image wx:else class="icon" src="{{item.iconPath}}" />
+                <view class="text {{active==index+1?'checked':''}}">{{item.text}}</view>
+            </button>
+        </view>
+    </view>
+    <register wx:if="{{showRegister}}" bind:close="onClose" bind:success="onSuccess"></register>
+</view>

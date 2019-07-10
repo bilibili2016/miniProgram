@@ -1,0 +1,16 @@
+<view class="user">
+  <view class="bottom">
+    <view class="list">
+       <view class="item {{item.isMargin?'marginBox':''}}" wx:for="{{itemList}}" wx:key="{{index}}" data-url="{{item.url}}" bindtap="handleLink">
+         <view class="itemCon">
+           <van-icon class="leftIcon" name="notes-o" />
+           <text class="inner">{{item.title}}</text>
+           <view class="rightIcon">
+             <text wx:if="{{item.alertNum}}" class="alert">{{item.alertNum}}</text>
+             <van-icon class="icon" name="arrow" />
+           </view>
+         </view>
+       </view>
+    </view>
+  </view>
+</view>

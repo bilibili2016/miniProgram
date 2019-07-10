@@ -1,0 +1,44 @@
+function install(req, request) {
+  req.user = {
+    getCourseDetail(data) {
+      return request({
+        url: `${req.apiUrl}/Wapi/Curriculum/curriculumDetail`,
+        method: 'POST',
+        data,
+      }, false);
+    },
+    getCatalogList(data) {
+      return request({
+        url: `${req.apiUrl}/Wapi/Curriculum/curriculumCatalogList`,
+        method: 'GET',
+        data,
+      }, false);
+    },
+    getEvaluateList(data) {
+      return request({
+        url: `${req.apiUrl}/Wapi/Evaluate/evaluateList`,
+        method: 'GET',
+        data,
+      }, false);
+    },
+    getBannerList(data) {
+      return request({
+        url: `${req.apiUrl}/index.php/Miniprogram/Index/bannerList`,
+        method: 'GET',
+        data,
+      }, false);
+    },
+    getTeacherList(data) {
+      return request({
+        url: `${req.apiUrl}/Miniprogram/Teacher/teacherList`,
+        method: 'GET',
+        data,
+      }, false);
+    },
+
+  };
+}
+
+module.exports = {
+  install,
+};

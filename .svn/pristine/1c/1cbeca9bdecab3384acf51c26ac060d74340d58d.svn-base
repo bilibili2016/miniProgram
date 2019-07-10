@@ -1,0 +1,148 @@
+.chat .chatInfo {
+    height: 100%;
+    padding: 30rpx 30rpx 100rpx;
+    overflow-y: auto;
+    /* background-color: #F5F5F5; */
+}
+
+.chat .chatInfo.pdb {
+    padding-bottom: 230rpx;
+}
+
+.chatList {
+    margin-bottom: 50rpx;
+
+}
+
+.chatList .time {
+    text-align: center;
+    font-size: 24rpx;
+    color: #fff;
+    margin: 0 auto 30rpx;
+}
+
+.chatList .time text {
+    border-radius: 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background-color: #C7C8CC;
+    padding: 0 15rpx;
+}
+
+.chatList .headImg {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 30rpx;
+}
+
+.chatList .flex {
+    display: flex;
+    align-items: flex-start;
+}
+
+.chatList .word {
+    color: #303030;
+    font-size: 26rpx;
+    padding: 20rpx;
+    max-width: 500rpx;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.chatList .left .content {
+    justify-content: flex-start;
+}
+
+.chatList .right .content {
+    justify-content: flex-end;
+}
+
+.chatList .content .img {
+    width: 200rpx;
+    height: auto;
+}
+
+.chatList .left .word {
+    border-radius: 0px 10px 10px 10px;
+    background-color: #F5F5F5;
+}
+
+.chatList .right .headImg {
+    margin: 0 0 0 30rpx;
+}
+
+.chatList .right .word {
+    background-color: #5D8BFF;
+    border-radius: 10px 0 10px 10px;
+    color: #fff;
+}
+
+.chat .toolBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    transition: all 360ms;
+    border: 1px solid #F4F3F3;
+}
+
+.chat .toolBar .inputChat {
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+.chat .toolBar .inputChat.pbd {
+    padding-bottom: 20rpx;
+} */
+
+.chat .toolBar .section {
+    width: 600rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    border-radius: 44rpx;
+    background-color: #FCFAFA;
+    border: 1rpx solid #F4F3F3;
+    font-size: 30rpx;
+    margin-left: 30rpx;
+}
+
+.chat .toolBar .section input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 25rpx;
+}
+
+.chat .toolBar .icon {
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 10rpx 0;
+    box-sizing: border-box;
+    flex: 1;
+    text-align: center;
+}
+
+.chat .toolBar .toolList .tool {
+    padding: 30rpx 40rpx 20rpx;
+    display: inline-block;
+    text-align: center;
+}
+
+.chat .toolBar .toolList .tool .functionImg {
+    width: 40rpx;
+    height: 30rpx;
+}
+
+.chat .toolBar .toolList .tool .functionName {
+    color: #353535;
+    font-size: 24rpx;
+}

@@ -1,0 +1,40 @@
+<view class="user">
+    <!-- 需要使用 button 来授权登录 -->
+    <!-- <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        登录
+    </button> -->
+    <!-- <button wx:if="{{canIUse}}" open-type="getPhoneNumber" bindgetphonenumber="bindGetPhoneNumber">
+        手机号
+    </button> -->
+    <view class="info" wx:if="{{isLogin}}">
+        <!-- <open-data type="userNickName"></open-data> -->
+        <!-- <open-data type="userAvatarUrl"></open-data> -->
+        <view class="text">
+            <text>{{userInfo.nickName}}</text>
+        </view>
+        <view class="headImg">
+            <image src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        </view>
+    </view>
+    <button class="info" wx:else open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        <text class="text">登录</text>
+        <view class="headImg">
+            <image src="https://h5-image.1911edu.com/mini-myIcon3.png"></image>
+        </view>
+        <image class="right" src="https://h5-image.1911edu.com/mini-userRight.png" />
+    </button>
+    <view class="activity">
+        <view class="title">
+            <image src="https://h5-image.1911edu.com/mini-activityIcon.png" />
+            <text>我的活动</text>
+        </view>
+        <view class="actvList" wx:for="{{activityList}}" wx:key="{{index}}">
+            <image class="cover" src="{{item.cover}}" />
+            <view class="word">
+                <image src="https://h5-image.1911edu.com/mini-userIcon.png" />
+                <text class="people">{{item.number}}</text>
+                <text class="text">人正在参与此活动</text>
+            </view>
+        </view>
+    </view>
+</view>

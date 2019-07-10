@@ -1,0 +1,4 @@
+<!-- pages/home/activity/success/success.wxml -->
+<view class='success'>
+  <no-data title="{{title}}" isShowTitle="{{isShowTitle}}" imgUrl="{{imgUrl}}" dataDesc="{{dataDesc}}" btnText="{{btnText}}" btnUrl="{{btnUrl}}"></no-data>
+</view>

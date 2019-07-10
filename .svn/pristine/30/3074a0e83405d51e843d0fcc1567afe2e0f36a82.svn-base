@@ -1,0 +1,50 @@
+<view class="home">
+    <view class="top">
+        <image class="message" src="https://h5-image.1911edu.com/mini-messageIcon.png"></image>
+        <text class="red"></text>
+        <view class="search">
+            <van-icon class="searchIcon" name="search" />
+            <input type="text" placeholder="搜索姓名、话题或关键字" value="{{inputValue}}" confirm-type="done" bindconfirm="bindconfirm" />
+        </view>
+    </view>
+    <swiper indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay="true" interval="3000" duration="500" circular="true" class="swiper">
+        <block wx:for="{{bannerList}}" wx:key="{{index}}">
+            <swiper-item bindtap="handleActive" data-type="{{item.jump_type}}" data-id="{{item.jump_id}}">
+                <image src="{{item.picture}}" class="slideImage" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="recommend">
+        <view class="title">为您推荐</view>
+        <view class="teacherList">
+            <view class="teacher" wx:for="{{teacherList}}" wx:key="{{index}}" data-id="{{item.id}}" data-url="/pages/home/professor/detail/detail" bindtap="handleLink">
+                <view class="info">
+                    <image src="{{item.head_img}}" />
+                    <view class="name">
+                        <view class="teacherName">{{item.teacher_name}}</view>
+                        <view>{{item.graduate}}</view>
+                    </view>
+                </view>
+                <view class="buttonList">
+                    <text wx:for="{{item.tagList}}" wx:key="{{index}}" wx:for-item="tag">
+                        {{tag.tag_name}}
+                    </text>
+                </view>
+                <view class="tag" wx:for="{{item.questionList}}" wx:key="{{index}}" wx:for-item="question">
+                    <image src="{{teacherIcon}}" />
+                    <text class="icon">{{question.title}}</text>
+                </view>
+                <view class="order clearfix">
+                    <view class="fl">
+                        <text class="people">{{item.bespokeNum}}</text>
+                        <text>人咨询过</text>
+                    </view>
+                    <view class="fr" wx:if="{{item.is_meet}}">约TA</view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{teacherParams.total>teacherList.length}}" class="loadMore">加载更多...</view>
+        <view wx:else class="loadMore loadAll">我是有底线的</view>
+    </view>
+</view>
+<tabBar wx:if="{{true}}"></tabBar>

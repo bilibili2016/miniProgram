@@ -1,0 +1,29 @@
+function install(req, request) {
+    req.profile = {
+        getBannerList(data) {
+            return request({
+                url: `${req.apiUrl}/index.php/Miniprogram/Index/bannerList`,
+                method: 'GET',
+                data,
+            }, false);
+        },
+        questionList(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/questionList`,
+                method: 'GET',
+                data,
+            }, false);
+        },
+        tagList(data) {
+            return request({
+                url: `${req.apiUrl}/Miniprogram/User/tagList`,
+                method: 'GET',
+                data,
+            }, false);
+        }
+    };
+}
+
+module.exports = {
+    install,
+};

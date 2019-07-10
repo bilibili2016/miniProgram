@@ -1,0 +1,47 @@
+<view class="consultList">
+    <view class="consult" wx:if="{{!isTeacher}}">
+        <view class="vip">「畅聊会员」剩余39次提问机会</view>
+        <view class="teacherList">
+            <view class="teacher" wx:for="{{teacherList}}" wx:key="{{index}}" bind:tap="goInfo" data-id="{{item.receive_user_id}}">
+                <view class="info">
+                    <view class="image">
+                        <image class="headImg" src="{{item.headImg}}" />
+                        <view class="number">{{item.total}}</view>
+                    </view>
+                    <view class="name">
+                        <view class="teacherName">{{item.real_name}}</view>
+                        <view>{{item.content}}</view>
+                    </view>
+                    <van-icon class="delete" name="delete" />
+                </view>
+                <view class="tag" wx:for="{{item.topic}}" wx:key="{{index}}">
+                    <image src="teacherIcon" />
+                    <text class="icon">{{item}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="floor">我是有底线</view>
+    </view>
+    <view class="myTeacher" wx:else>
+        <view class="teacherList">
+            <view class="teacher" wx:for="{{teacherList}}" wx:key="{{index}}" bind:tap="goInfo" data-id="{{item.receive_user_id}}">
+                <view class="info">
+                    <view class="image">
+                        <image class="headImg" src="{{item.headImg}}" />
+                    </view>
+                    <view class="techerName clearfix">
+                        <view class="fl">{{item.real_name}}</view>
+                        <view class="fr">{{item.send_time}}</view>
+                    </view>
+                    <view class="word clearfix">
+                        <view class="lastWord fl">{{item.content}}</view>
+                        <view class="msg fr" wx:if="{{item.total}}">{{item.total}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="floor">以上为全部信息</view>
+    </view>
+    <no-data wx:if="{{userList.length==0}}" noData="{{noData}}"></no-data>
+    <tabBar wx:if="{{true}}"></tabBar>
+</view>

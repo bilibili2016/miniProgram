@@ -1,0 +1,235 @@
+.appointment {}
+
+.appointment .teacher {
+    padding: 0 32rpx;
+    display: flex;
+}
+
+.appointment .teacher .headImg {
+    width: 90rpx;
+    height: 90rpx;
+    margin-right: 30rpx;
+    border-radius: 50%;
+}
+
+.appointment .teacher .name {
+    flex: 1;
+    font-size: 30rpx;
+    color: #303030;
+}
+
+.appointment .teacher .duration {
+    margin-top: 13rpx;
+    color: #87868B;
+    font-size: 24rpx;
+}
+
+.progress {
+    padding: 0 32rpx;
+}
+
+.date {
+    padding: 30rpx 0;
+}
+
+.date .timeList {
+    padding: 30rpx;
+}
+
+.date .timeList view {
+    float: left;
+    width: 215rpx;
+    height: 76rpx;
+    line-height: 76rpx;
+    border-radius: 38rpx;
+    border: 1rpx solid #C1C1C3;
+    font-size: 30rpx;
+    color: #303030;
+    text-align: center;
+    margin-bottom: 22rpx;
+    margin-right: 20rpx;
+}
+
+.date .timeList view:nth-child(3n) {
+    margin-right: 0;
+}
+
+.date .timeList view.checked {
+    border: 1rpx solid #6317A5;
+    background-color: #FBF6FF;
+    color: #6317A5;
+}
+
+.date .timeList view.disable {
+    background-color: #F5F5F5;
+    border-color: #F5F5F5;
+}
+
+.address {
+    padding: 0 32rpx 30rpx;
+}
+
+.address .section {
+    display: flex;
+    justify-content: space-between;
+    line-height: 82rpx;
+    font-size: 30rpx;
+    color: #303030;
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+.address .section input {
+    width: 535rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    border: 1rpx solid #E0E0E1;
+    border-radius: 10rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.van-step__title view {
+    font-size: 24rpx;
+}
+
+.address .section textarea {
+    display: inline-block;
+    width: 535rpx;
+    height: 228rpx;
+    padding: 20rpx 18rpx 40rpx 20rpx;
+    border: 1rpx solid #E0E0E1;
+    border-radius: 10rpx;
+    font-size: 30rpx;
+    line-height: 40rpx;
+    box-sizing: border-box;
+}
+
+.length {
+    height: 30rpx;
+    line-height: 30rpx;
+    position: absolute;
+    bottom: 8rpx;
+    right: 10rpx;
+    color: #ADADAD;
+    font-size: 24rpx;
+}
+
+.address .rules {
+    padding-left: 160rpx;
+    color: #ADADAD;
+    font-size: 24rpx;
+    vertical-align: middle;
+}
+
+.address .rules van-icon {
+    vertical-align: middle;
+    margin-right: 8rpx;
+}
+
+.proce {
+    background-color: #F5F5F5;
+    padding: 0 32rpx 40rpx;
+}
+
+.allPrice {
+    padding: 40rpx 0 10rpx;
+    text-align: right;
+    line-height: 30rpx;
+}
+
+.allPrice .one {
+    color: #87868B;
+    font-size: 24rpx;
+}
+
+.allPrice .two {
+    color: #303030;
+    font-size: 28rpx;
+}
+
+.allPrice .three {
+    color: #FF4A3A;
+    font-size: 24rpx;
+}
+
+.allPrice .fore {
+    color: #FF4A3A;
+    font-size: 38rpx;
+}
+
+.pay {
+    color: #303030;
+    font-size: 26rpx;
+    text-align: right;
+    margin-top: 10rpx;
+}
+
+.order {
+    background-color: #6317A5;
+    width: 100%;
+    height: 94rpx;
+    line-height: 94rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 32rpx;
+}
+
+.tips {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.tips .inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -270rpx;
+    margin-left: -315rpx;
+    background-color: #fff;
+    width: 630rpx;
+    height: 540rpx;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 0 40rpx 50rpx;
+}
+
+.tips .inner .title {
+    padding: 40rpx 0 20rpx;
+    font-size: 36rpx;
+    color: #303030;
+}
+
+.tips .inner .text {
+    color: #87868B;
+    line-height: 40rpx;
+    font-size: 26rpx;
+
+}
+
+.tips .closeIcon {
+    width: 62rpx;
+    height: 62rpx;
+    position: absolute;
+    left: 50%;
+    margin-left: -31rpx;
+    bottom: -115rpx;
+    color: #fff;
+}
+
+/* 日历样式改写 */
+.calendar--active_style1 {
+    color: #ccc;
+    font-size: 28rpx;
+}
+
+.calendar--mytext {
+    margin-top: -10rpx !important;
+    color: #ADADAD;
+    font-size: 20rpx !important;
+}

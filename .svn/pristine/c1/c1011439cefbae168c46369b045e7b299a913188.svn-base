@@ -1,0 +1,241 @@
+page {
+    min-height: 100%;
+    background-color: #f5f5f5;
+}
+
+.mine {
+    padding-top: 40rpx;
+}
+
+.actvList,
+.appoList .item {
+    position: relative;
+    width: 686rpx;
+    margin: 0 auto 40rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+}
+
+.actvList .cover {
+    width: 100%;
+    height: 330rpx;
+}
+
+.actvList .word {
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+}
+
+.actvList .word image {
+    width: 20rpx;
+    height: 24rpx;
+    margin-right: 10rpx;
+}
+
+.actvList .word .people {
+    color: #303030;
+}
+
+.actvList .word .text {
+    color: #87868B;
+}
+
+.actvList .time {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    /* width: 270rpx; */
+    height: 48rpx;
+    line-height: 48rpx;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 31rpx;
+    font-size: 24rpx;
+    color: #fff;
+    padding: 0 12rpx;
+}
+
+.actvList .time .icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 42rpx;
+    margin-right: 10rpx;
+}
+
+.actvList .time .icon view {
+    margin-top: 4rpx;
+}
+
+.actvList .time text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.appoList .item {
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+
+.appoList .item .info .fl {
+    width: 90rpx
+}
+
+.appoList .item .info .fr {
+    width: 500rpx
+}
+
+
+.appoList .item .info .headImg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+}
+
+.appoList .item .info .name {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 30rpx;
+    color: #303030;
+    font-weight: 500;
+}
+
+.appoList .item .info .flag {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5rpx 7rpx;
+    background-color: #FF4A3A;
+    color: #fff;
+    font-size: 22rpx;
+    margin-left: 10rpx;
+    border-radius: 5rpx;
+}
+
+.appoList .item .info .status {
+    position: absolute;
+    top: 44rpx;
+    right: 24rpx;
+    font-size: 26rpx;
+}
+
+.confirming {
+    color: #FF4A3A;
+}
+
+.confirmed {
+    color: #23C27D;
+}
+
+.cancel {
+    color: #87868B
+}
+
+.finished {
+    color: #87868B;
+}
+
+.appoList .item .info .desc {
+    font-size: 24rpx;
+    color: #87868B;
+    margin-top: 10rpx;
+}
+
+.appoList .item .log {
+    margin-top: 20rpx;
+    font-size: 26rpx;
+    color: #303030;
+    /* padding-bottom: 30rpx; */
+    border-bottom: 1rpx soild #E0E0E1;
+}
+
+.appoList .item .log view {
+    margin-bottom: 20rpx;
+}
+
+.appoList .item .log view:last-child {
+    margin-bottom: 0
+}
+
+.appoList .item .log view image {
+    display: inline-block;
+    width: 22rpx;
+    height: 20rpx;
+    margin-right: 12rpx;
+}
+
+.appoList .item .operate {
+    position: relative;
+}
+
+
+.appoList .item .operate .time,
+.appoList .item .operate .address {
+    position: relative;
+    font-size: 26rpx;
+    color: #87868B;
+    margin-top: 30rpx;
+    padding-left: 40rpx;
+
+}
+
+.appoList .item .operate .time van-icon,
+.appoList .item .operate .address van-icon {
+    position: absolute;
+    top: 3rpx;
+    left: 0;
+    font-size: 32rpx;
+}
+
+.appoList .item .operate .btn {
+    text-align: right;
+    /* position: absolute;
+  bottom: 20rpx;
+  right: 20rpx; */
+    /* display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0; */
+
+}
+
+.appoList .item .operate .btn view {
+    display: inline-block;
+    vertical-align: middle;
+    width: 125rpx;
+    height: 52rpx;
+    text-align: center;
+    line-height: 52rpx;
+    margin-right: 20rpx;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+}
+
+.appoList .item .operate .btn view:last-child {
+    margin-right: 0
+}
+
+.appoList .item .operate .btn view.cancle {
+    background-color: #fff;
+    border: 1rpx solid #9B9B9B;
+    color: #5E5E5E;
+}
+
+.appoList .item .operate .btn view.confirmBtn {
+    background-color: #6317A5;
+    color: #fff;
+    margin-left: 20rpx;
+}
+
+.appoList .item .operate .btn view.pay {
+    background-color: #6317A5;
+    color: #fff;
+}
+
+.appoList .item .operate {}
+
+.teacher {
+    margin-top: 40rpx;
+}

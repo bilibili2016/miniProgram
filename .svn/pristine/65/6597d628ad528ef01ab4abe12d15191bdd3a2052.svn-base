@@ -1,0 +1,6 @@
+<view class="myCode">
+  <image src="{{imgUrl}}"></image>
+  <view class="btn save" bindtap="saveImg">保存到相册</view>
+  <view class="btn send" bindtap="sendImg">发送到微信</view>
+  <!-- <button class='sendfriend' bindtap='sendfriend' open-type="share">发送给微信好友</button> -->
+</view>

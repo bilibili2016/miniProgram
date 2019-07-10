@@ -1,0 +1,35 @@
+/* miniprogram/pages/user/beTeacher/label/list/list.wxss */
+.labelList {
+  height: 100%;
+  padding: 50rpx 32rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.labelList .item {
+  margin-bottom: 50rpx;
+}
+
+.labelList .item .title {
+  font-size: 34rpx;
+  color: #303030;
+  font-weight: bold;
+}
+
+.labelList .item .tag {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding: 24rpx 32rpx;
+  background-color: #F5F5F5;
+  font-size: 28rpx;
+  color: #303030;
+  margin: 30rpx 20rpx 0 0;
+  border-radius: 44rpx;
+  border: 1px solid #F5F5F5;
+}
+
+.labelList .item .tag.checked {
+  color: #6317A5;
+  border-color: #6317A5;
+}

@@ -1,0 +1,57 @@
+// components/common/noData/noData.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    isShowTitle: {
+      type: Boolean,
+      value: '是否显示标题'
+    },
+    // btn按钮标题
+    title: {
+      type: String,
+      value: '页面标题'
+    },
+    // 提示内容
+    dataDesc: {
+      type: String,
+      value: '页面描述'
+    },
+    //提示图片
+    imgUrl: {
+      type: String,
+      value: '提示图片'
+    },
+    // 按钮文字以及跳转链接
+    btnText: {
+      type: String,
+      value: '文字'
+    },
+    btnUrl: {
+      type: String,
+      value: '图片'
+    }
+
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    handleLink(e) {
+      console.log(e);
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
+      })
+    }
+
+  }
+})

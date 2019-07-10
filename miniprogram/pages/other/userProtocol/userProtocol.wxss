@@ -1,0 +1,41 @@
+.userProtocol {
+    padding: 15rpx 30rpx 260rpx;
+}
+
+.userProtocol .title {
+    color: #222;
+    font-size: 32rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-weight: 500;
+}
+
+.userProtocol .head {
+    height: 140rpx;
+    line-height: 140rpx;
+    text-align: center;
+    font-size: 38rpx;
+    color: #222;
+}
+
+.userProtocol .red {
+    display: inline-block;
+    color: #E96D5A;
+}
+
+.userProtocol .text {
+    color: #303030;
+    font-size: 28rpx;
+    line-height: 50rpx;
+}
+
+.userProtocol .bottom {
+    margin-bottom: 50rpx;
+}
+
+.userProtocol .right {
+    margin-top: 90rpx;
+    text-align: right;
+    color: #8A8E95;
+    font-size: 28rpx;
+}

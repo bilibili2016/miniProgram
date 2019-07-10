@@ -1,0 +1,23 @@
+<view class="setTopic">
+    <view class="list">
+        <view class="item" wx:for="{{questionList}}" wx:key="{{index}}">
+            <view class="name">
+                <view class="text">话题{{index+1}}</view>
+                <view class="con">
+                    <input type="text" id="input{{index}}" data-id="{{index}}" data-index="{{index}}" placeholder="请输入话题名称" value="{{item.title}}" bindblur="inputBindblur" placeholder-style="#ADADAD" />
+                </view>
+            </view>
+            <view class="desc">
+                <view class="text">话题描述</view>
+                <view class="con">
+                    <textarea placeholder="请描述话题内容～" id="text{{index}}" data-id="{{index}}" data-index="{{index}}" auto-height="true" cols="30" rows="10" value="{{item.content}}" bindblur="textBindblur" bindinput="bindinput" placeholder-style="#ADADAD" maxlength="200"></textarea>
+                    <text class="rest">{{item.content.length}}/200</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="btnCon">
+        <view class="desc">您最多可设置3个话题进行展示</view>
+        <view class="btn" bindtap="save">保存</view>
+    </view>
+</view>

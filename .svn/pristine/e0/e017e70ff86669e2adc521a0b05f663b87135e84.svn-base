@@ -1,0 +1,50 @@
+<view class="chat" style="min-height:{{windowHeight}}px;">
+    <view class="chatInfo {{showPdb?'pdb':''}}" id="chatInfo">
+        <view wx:for="{{chatList}}" wx:key="index" class="chatList">
+            <view class="left" wx:if="{{item.send_user_id==receiveId}}">
+                <view class="time">
+                    <text>{{item.send_time}}</text>
+                </view>
+                <view class="content flex">
+                    <image class="headImg" src="{{item.headImg}}" />
+                    <view class="word" wx:if="{{item.content_type==1}}">{{item.content}}</view>
+                    <image wx:if="{{item.content_type==2}}" class="img" src="{{item.content}}" bindload="bindload" data-src="{{item.content}}" bind:tap="lookBigIMG" mode="widthFix" />
+                </view>
+            </view>
+            <view class="right" wx:else>
+                <view class="time">
+                    <text>{{item.send_time}}</text>
+                </view>
+                <view class="content flex">
+                    <view class="word" wx:if="{{item.content_type==1}}">{{item.content}}</view>
+                    <image wx:if="{{item.content_type==2}}" class="img" src="{{item.content}}" data-src="{{item.content}}" bind:tap="lookBigIMG" bindload="bindload" mode="widthFix" />
+                    <image class="headImg" src="{{item.headImg}}" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="toolBar" hidden="{{toolLoading}}">
+        <view class="inputChat">
+            <view class="section">
+                <input cursor-spacing="10" bindinput="bindReplaceInput" bindfocus="bindFocusInput" bindblur="bindblur" bindconfirm="bindconfirm" bindkeyboardheightchange="bindkeyboardheightchange" placeholder="请输入您要咨询的问题" value="{{inputValue}}" placeholder-style="color:#A5A5A5" confirm-type="send" disabled="{{!isChat}}" />
+            </view>
+            <view class="icon" bind:tap="bindShowTool">
+                <van-icon name="add-o" size="50rpx" color="#757886" />
+            </view>
+        </view>
+        <view class="toolList" wx:if="{{showTool}}" id="toolList">
+            <view class="tool" bind:tap="chooseImage">
+                <image class="functionImg" src="https://h5-image.1911edu.com/miniPrograme-picture.png" />
+                <view class="functionName">相册</view>
+            </view>
+            <view class="tool" bind:tap="camera">
+                <image class="functionImg" src="https://h5-image.1911edu.com/miniPrograme-camera.png" />
+                <view class="functionName">拍摄</view>
+            </view>
+            <!-- <view class="tool">
+                <image class="functionImg" src="" />
+                <view class="functionName">评价</view>
+            </view> -->
+        </view>
+    </view>
+</view>

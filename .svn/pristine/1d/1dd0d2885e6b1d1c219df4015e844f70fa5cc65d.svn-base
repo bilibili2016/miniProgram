@@ -1,0 +1,89 @@
+.vip {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #FF4A3A;
+    font-size: 28rpx;
+    background: rgba(255, 244, 229, 1);
+}
+
+.teacherList {
+    padding: 0 30rpx;
+}
+
+.teacher {
+    padding-left: 120rpx;
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+.teacher:last-child {
+    margin: 0;
+}
+
+.teacher .info {
+    /* display: flex; */
+}
+
+.teacher .info .headImg {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.teacher .info .name {
+    font-size: 24rpx;
+    color: #87868B;
+    margin: 6rpx;
+    max-width: 535rpx;
+}
+
+.teacher .info .name .teacherName {
+    font-size: 30rpx;
+    color: #303030;
+    width: 100%;
+}
+
+.teacher .delete {
+    width: 34rpx;
+    height: 34rpx;
+    position: absolute;
+    top: 6rpx;
+    right: 0;
+}
+
+.tag {
+    font-size: 24rpx;
+    color: #303030;
+    margin: 10rpx 0;
+}
+
+.tag image {
+    width: 22rpx;
+    height: 20rpx;
+}
+
+.tag .icon {
+    color: #303030;
+}
+
+.tag:last-child {
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #E0E0E1;
+}
+
+.floor {
+    color: #C1C1C3;
+    margin-top: 40rpx;
+    font-size: 24px;
+}
+
+.floor::after,
+.floor::before {
+    color: #D8D8D8;
+    background-color: #D8D8D8;
+}

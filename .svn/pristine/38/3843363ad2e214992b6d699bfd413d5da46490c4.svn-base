@@ -1,0 +1,199 @@
+/* pages/home/index/index.wxss */
+.home {
+    padding: 20rpx 30rpx 100rpx;
+}
+
+.top {
+    margin-bottom: 30rpx;
+}
+
+.top .message {
+    display: inline-block;
+    vertical-align: middle;
+    width: 35rpx;
+    height: 40rpx;
+    margin-right: 40rpx;
+}
+
+.top .red {
+    position: absolute;
+    top: 30rpx;
+    left: 50rpx;
+    display: block;
+    width: 15rpx;
+    height: 15rpx;
+    background-color: #FF4A3A;
+    border-radius: 50%;
+}
+
+.top .search {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #F5F5F5;
+    border-radius: 30rpx;
+    width: 88%;
+    color: #9B9B9B;
+    font-size: 28rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 50rpx;
+    box-sizing: border-box;
+}
+
+.top .search .searchIcon {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 60rpx;
+    font-size: 38rpx;
+    color: #9B9B9B;
+    margin-right: 12rpx;
+    margin-top: 6rpx;
+}
+
+.swiper {
+    width: 100%;
+    height: 300rpx;
+}
+
+.slideImage {
+    width: 100%;
+    height: 300rpx;
+    border-radius: 20rpx;
+}
+
+.recommend .title {
+    font-size: 38rpx;
+    color: #303030;
+    padding: 40rpx 0;
+}
+
+.teacher {
+    border-bottom: 1rpx solid #E0E0E1;
+    margin-bottom: 30rpx;
+}
+
+.teacher:last-child {
+    margin: 0;
+    margin-bottom: 0;
+}
+
+.teacher .info {
+    display: flex;
+}
+
+.teacher .info image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+}
+
+.teacher .info .name {
+    flex: 1;
+    font-size: 24rpx;
+    color: #87868B;
+    margin: 6rpx;
+}
+
+.teacher .info .name .teacherName {
+    font-size: 30rpx;
+    color: #303030;
+    margin-bottom: 12rpx;
+}
+
+.teacher .info .name view {
+    width: 560rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.buttonList {
+    width: 100%;
+    margin: 24rpx 0;
+}
+
+.buttonList text {
+    display: inline-block;
+    padding: 0 25rpx;
+    color: #87868B;
+    font-size: 24rpx;
+    background-color: #F5F6F6;
+    margin-left: 20rpx;
+    height: 40rpx;
+    line-height: 14rpx;
+    text-align: center;
+    border-radius: 20rpx;
+}
+
+.buttonList text:first-child {
+    margin: 0;
+}
+
+.tag {
+    font-size: 24rpx;
+    color: #303030;
+    margin: 10rpx 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tag image {
+    width: 22rpx;
+    height: 20rpx;
+    margin-right: 12rpx;
+}
+
+.order {
+    margin: 20rpx 0 30rpx;
+    font-size: 27rpx;
+    color: #87868B;
+}
+
+.order .fl {
+    margin-top: 10rpx;
+}
+
+.order .fl .people {
+    display: inline-block;
+    color: #F6463D;
+}
+
+.order .fr {
+    width: 130rpx;
+    height: 52rpx;
+    line-height: 52rpx;
+    background: #FE7918;
+    border-radius: 36rpx;
+    color: #fff;
+    font-size: 30rpx;
+    text-align: center;
+}
+
+
+.loadMore {
+    position: relative;
+    font-size: 24rpx;
+    color: #C1C1C3;
+    text-align: center;
+    line-height: 108rpx;
+}
+
+.loadAll::before,
+.loadAll::after {
+    display: inline-block;
+    content: "";
+    height: 2rpx;
+    width: 50rpx;
+    background-color: #D8D8D8;
+    margin-bottom: 9rpx;
+    margin-right: 20rpx;
+
+}
+
+.loadAll::after {
+    margin-left: 20rpx;
+    margin-right: 0;
+}

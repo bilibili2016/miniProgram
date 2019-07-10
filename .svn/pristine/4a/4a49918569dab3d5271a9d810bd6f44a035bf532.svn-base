@@ -1,0 +1,92 @@
+.apply {
+  padding-top: 50rpx;
+}
+
+.section {
+  width: 686rpx;
+  height: 88rpx;
+  background: rgba(245, 245, 245, 1);
+  border-radius: 10rpx;
+  margin: 0 auto 30rpx;
+}
+
+.section input {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+}
+
+.section.code {
+  display: flex;
+}
+
+.section.code input {
+  flex: 1;
+}
+
+.section.code .sectionCode {
+  width: 180rpx;
+  height: 24rpx;
+  text-align: center;
+  line-height: 28rpx;
+  padding: 0 15rpx;
+  font-size: 30rpx;
+  margin-top: 29rpx;
+  border-left: 1rpx solid #c7c8cc;
+  color: #f6463d;
+}
+
+.sectionRadio {
+  padding: 0 30rpx;
+}
+
+.sectionRadio radio-group {
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sectionRadio label {
+  width: 328rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #000;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  background-color: #f5f5f5;
+  border: 2rpx solid rgba(231, 71, 63, 0);
+}
+
+.sectionRadio label radio {
+  display: none;
+}
+
+.sectionRadio label.checked {
+  border: 2rpx solid rgba(231, 71, 63, 1);
+  position: relative;
+}
+
+.sectionRadio label.checked:after {
+  content: '';
+  display: block;
+  width: 57rpx;
+  height: 42rpx;
+  position: absolute;
+  bottom: -2rpx;
+  right: 0;
+  background: url('https://h5-image.1911edu.com/mini-checked.png') no-repeat;
+  background-size: contain;
+  border-bottom-right-radius: 10rpx;
+}
+
+.btn button{
+  width: 688rpx;
+  height: 88rpx;
+  background: rgba(246, 70, 61, 1);
+  border-radius: 10rpx;
+  color: #fff;
+  margin: 0 auto;
+}

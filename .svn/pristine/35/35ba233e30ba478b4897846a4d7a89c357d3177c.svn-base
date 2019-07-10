@@ -1,0 +1,43 @@
+<view class="user">
+  <view class="bottom">
+    <view class="twos">
+      <view class="item">
+        <van-icon class="leftIcon" name="notes-o" />
+        <text class="inner">头像</text>
+        <view class="rightIcon">
+          <van-icon class="icon" name="arrow" />
+        </view>
+      </view>
+      <view class="item">
+        <van-icon class="leftIcon" name="notes-o" />
+        <text class="inner">形象照</text>
+        <view class="rightIcon">
+          <van-icon class="icon" name="arrow" />
+        </view>
+      </view>
+    </view>
+    <view class="other">
+      <view class="item">
+        <van-icon class="leftIcon" name="notes-o" />
+        <text class="inner">个人介绍</text>
+        <view class="rightIcon">
+          <van-icon class="icon" name="arrow" />
+        </view>
+      </view>
+      <view class="item">
+        <van-icon class="leftIcon" name="notes-o" />
+        <text class="inner">标签设置</text>
+        <view class="rightIcon">
+          <van-icon class="icon" name="arrow" />
+        </view>
+      </view>
+      <view class="item">
+        <van-icon class="leftIcon" name="notes-o" />
+        <text class="inner">话题设置</text>
+        <view class="rightIcon">
+          <van-icon class="icon" name="arrow" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

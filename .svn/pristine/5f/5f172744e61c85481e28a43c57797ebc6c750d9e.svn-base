@@ -1,0 +1,104 @@
+.setAppointment {}
+
+.setAppointment .switch {
+    height: 140rpx;
+    line-height: 140rpx;
+    padding: 0 32rpx;
+}
+
+.content calendar {
+    width: 100%;
+}
+
+.active-colort {
+    color: #fff;
+    background: #b8d5eb;
+}
+
+.content .select {
+    padding: 0 32rpx;
+    font-size: 30rpx;
+    color: #303030;
+    line-height: 78rpx;
+}
+
+.content .select .right {
+    margin-right: 38rpx;
+}
+
+.content .select .border {
+    width: 180rpx;
+    height: 77rpx;
+    line-height: 77rpx;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 20rpx;
+    border: 1px solid rgba(224, 224, 225, 1);
+    position: relative;
+}
+
+.content .select .border picker {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.content .select .border picker {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.price {
+    font-size: 30rpx;
+    color: #303030;
+    padding: 0 32rpx 40rpx;
+    line-height: 78rpx;
+}
+
+.price .input {
+    width: 515rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    padding: 0 0 0 25rpx;
+    position: relative;
+    border-radius: 5px;
+    margin-left: 20rpx;
+    border: 1px solid #E0E0E1;
+}
+
+.price .input input {
+    height: 100%;
+    width: 350rpx;
+}
+
+.price .input text {
+    position: absolute;
+    right: 50rpx;
+    top: 0;
+}
+
+.word {
+    font-size: 24rpx;
+    color: #87868B;
+    line-height: 48rpx;
+    padding: 40rpx 32rpx 0;
+}
+
+.red {
+    text-align: center;
+    margin: 40rpx auto 30rpx;
+    color: #FF4A3A;
+    font-size: 24rpx;
+}
+
+.commit {
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #6317A5;
+    text-align: center;
+    height: 98rpx;
+    line-height: 98rpx;
+}

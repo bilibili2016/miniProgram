@@ -1,0 +1,110 @@
+/* miniprogram/components/common/buy/buy.wxss */
+.buy {
+  position: fixed;
+  top: 0;
+  height: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  text-align: center;
+}
+
+.buy .content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 600rpx;
+  height: 900rpx;
+}
+
+.con {
+  width: 600rpx;
+  height: 700rpx;
+  border-radius: 20rpx;
+  padding-bottom: 30rpx;
+}
+
+.con image {
+  display: block;
+  width: 600rpx;
+  height: 280rpx;
+}
+
+.inner {
+  background-color: #fff;
+  padding-top: 40rpx;
+  text-align: center;
+  border-radius: 0 0 20rpx 20rpx;
+
+}
+
+.inner .title {
+  font-size: 32rpx;
+  color: #303030;
+  font-weight: 500;
+}
+
+.title .red {
+  color: #FF4A3A;
+}
+
+.inner .text {
+  font-size: 36rpx;
+  color: #303030;
+  font-weight: bold;
+  margin: 30rpx 0 10rpx;
+}
+
+.price {}
+
+.price .left {
+  font-size: 36rpx;
+  color: #FF4A3A;
+
+}
+
+.middle {
+  font-size: 88rpx;
+  color: #FF4A3A;
+}
+
+.right {
+  font-size: 28rpx;
+  color: #ADADAD;
+  text-decoration: line-through;
+  margin-left: 10rpx;
+}
+
+.btn {
+  width: 280rpx;
+  height: 76rpx;
+  margin: 0 auto;
+  background: #FF4A3A;
+  border-radius: 44rpx;
+  text-align: center;
+  line-height: 76rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.desc {
+  font-size: 24rpx;
+  color: #87868B;
+  margin: 20rpx 0 0 0;
+  padding-bottom: 30rpx;
+
+}
+
+.desc .descInner {
+  color: #FF4A3A;
+}
+
+.close {
+  display: block;
+  font-size: 62rpx;
+  color: #fff;
+  margin-top: 40rpx;
+}

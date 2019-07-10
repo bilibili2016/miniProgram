@@ -1,0 +1,325 @@
+/* miniprogram/pages/professor/detail/detail.wxss */
+page {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.container {
+    height: 100%;
+
+}
+
+.professorDetai {
+    background-color: #F5F5F5;
+}
+
+.viewTitle {
+    font-size: 38rpx;
+    color: #222;
+    margin-bottom: 30rpx;
+    font-weight: bold;
+}
+
+.bannerImg {
+    width: 100%;
+    height: 350rpx;
+    background-color: #000;
+}
+
+.info {
+    background-color: #fff;
+    padding: 0 35rpx 0 30rpx;
+    margin-top: -130rpx;
+
+}
+
+.info .head {
+    display: inline-block;
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.info .name {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 40rpx;
+    font-size: 34rpx;
+    color: #fff;
+    line-height: 150rpx;
+}
+
+.info .headImg {
+    width: 146rpx;
+    height: 146rpx;
+    border-radius: 50%;
+}
+
+.info .desc {
+    font-size: 28rpx;
+    color: #87868B;
+    line-height: 40rpx;
+    margin-top: 20rpx;
+    padding-bottom: 30rpx;
+    /* border-bottom: 1rpx solid #E0E0E1; */
+}
+
+.info .infoVideo {
+    position: relative;
+    width: 686rpx;
+    /* height: 280rpx; */
+    border-radius: 20rpx;
+}
+
+.info .infoCover {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.info .infoCover image {
+    width: 100%;
+}
+
+.info .playBtn {
+    width: 98rpx;
+    height: 98rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    font-size: 98rpx;
+    z-index: 100
+}
+
+.info .infoVideo video {
+    width: 100%;
+    border-radius: 20rpx;
+}
+
+.info .numbers {
+    width: 100%;
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #E0E0E1;
+}
+
+.info .numbers .item {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 33%;
+    text-align: center;
+}
+
+.info .numbers .item .num {
+    font-size: 38rpx;
+    color: #303030;
+    font-weight: bold;
+    margin-right: 5rpx;
+}
+
+.info .numbers .item .text {
+    font-size: 24rpx;
+    color: #87868B;
+    font-weight: bold
+}
+
+.info .numbers .item .line {
+    position: absolute;
+    right: 0;
+    top: 17rpx;
+    display: block;
+    width: 2rpx;
+    height: 30rpx;
+    background-color: #E5E5E5;
+
+}
+
+.about {
+
+    background-color: #fff;
+    position: relative;
+    padding: 40rpx 35rpx 30rpx 30rpx;
+    box-sizing: border-box;
+    margin-bottom: 15rpx;
+}
+
+.selfHeight {
+    max-height: 400rpx;
+    overflow: hidden;
+}
+
+.autoHeight {
+    height: auto;
+    overflow: inherit
+}
+
+
+.about .text {
+    font-size: 30rpx;
+    color: #434343;
+    line-height: 46rpx;
+}
+
+.about .text view {
+    margin-bottom: 10px;
+}
+
+.about .down {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -2rpx;
+    height: 150rpx;
+    /* margin-top: -50rpx; */
+}
+
+.about .down .top {
+    width: 100%;
+    height: 38rpx;
+    background: linear-gradient(360deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.about .down .all {
+    background-color: #fff;
+    line-height: 110rpx;
+    font-size: 28rpx;
+    color: #6317A5;
+    text-align: center;
+}
+
+.about .pull {
+    background-color: #fff;
+    line-height: 110rpx;
+    font-size: 28rpx;
+    color: #6317A5;
+    text-align: center;
+}
+
+.topic {
+    padding: 30rpx 35rpx 0 30rpx;
+    background-color: #fff;
+}
+
+.topic .inner {}
+
+.topic .inner .item {
+    padding-top: 40rpx;
+    border-bottom: 1rpx solid #E0E0E1;
+}
+
+.topic .inner .item .subTitle {
+    font-size: 32rpx;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 20rpx;
+}
+
+.topic .inner .item .text {
+    font-size: 28rpx;
+    color: #707070;
+    line-height: 42rpx;
+    margin-bottom: 30rpx;
+}
+
+.operate {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-top: 1px solid #EDEDED;
+}
+
+.operate .left,
+.operate .right {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100rpx;
+    line-height: 100rpx;
+
+}
+
+.operate .left {
+    width: 60%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.operate .right {
+    width: 40%;
+    text-align: center;
+    background-color: #6317A5;
+    font-size: 32rpx;
+    color: #fff;
+    border-radius: 0;
+}
+
+.operate .inner,
+.operate .price {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.operate .inner {
+    width: 50%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.operate .inner .line {
+    position: absolute;
+    right: 0;
+    top: 35rpx;
+    width: 1rpx;
+    height: 30rpx;
+    background-color: #E0E0E1;
+
+}
+
+.operate .price {
+    width: 50%;
+    text-align: center;
+}
+
+.operate .price .icon {
+    font-size: 24rpx;
+    color: #FF4A3A;
+}
+
+.operate .num {
+    font-size: 40rpx;
+    color: #FF4A3A;
+}
+
+.operate .time {
+    font-size: 26rpx;
+    color: #87868B;
+}
+
+.operate .text {
+
+    text-align: center;
+    /* border-right: 1rpx solid #E8E8E8; */
+    font-size: 28rpx;
+    color: #434343;
+}
+
+.registerMask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .3);
+}

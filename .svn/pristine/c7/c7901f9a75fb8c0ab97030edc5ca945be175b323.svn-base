@@ -1,0 +1,60 @@
+{
+    "pages": [
+        "pages/home/index/index",
+        "pages/home/activity/home/home",
+        "pages/home/activity/success/success",
+        "pages/home/professor/detail/detail",
+        "pages/home/appointment/appointment",
+        "pages/test/test",
+        "pages/consult/index/index",
+        "pages/consult/chat/chat",
+        "pages/user/profile/profile",
+        "pages/user/myAppointment/myAppointment",
+        "pages/user/beTeacher/index/index",
+        "pages/user/beTeacher/introduction/introduction",
+        "pages/user/beTeacher/label/index/index",
+        "pages/user/beTeacher/label/list/list",
+        "pages/user/beTeacher/topic/topic",
+        "pages/user/setAppointment/setAppointment",
+        "pages/user/setUser/index/index",
+        "pages/user/setUser/common/common",
+        "pages/user/myCode/myCode",
+        "components/common/cutFace/cutFace",
+        "pages/user/myCollection/myCollection",
+        "pages/user/setUser/bindTel/bindTel",
+        "pages/user/setUser/profession/profession"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#FFF",
+        "navigationBarTitleText": "1911学堂",
+        "navigationBarTextStyle": "black",
+        "onReachBottomDistance": 10
+    },
+    "sitemapLocation": "sitemap.json",
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+    "usingComponents": {
+        "van-icon": "miniprogram_npm/vant-weapp/icon/index",
+        "van-popup": "miniprogram_npm/vant-weapp/popup/index",
+        "van-steps": "miniprogram_npm/vant-weapp/steps/index",
+        "van-field": "miniprogram_npm/vant-weapp/field/index",
+        "van-toast": "miniprogram_npm/vant-weapp/toast/index",
+        "register": "./components/common/register/register",
+        "van-switch": "miniprogram_npm/vant-weapp/switch/index",
+        "van-picker": "miniprogram_npm/vant-weapp/picker/index",
+        "no-data": "components/common/noData/noData",
+        "tabBar": "./components/common/tabbar/tabbar",
+        "buy-pop": "components/common/buyPop/buyPop"
+    },
+    "plugins": {
+        "calendar": {
+            "version": "1.2.1",
+            "provider": "wx23a9cef3522e4f7c"
+        }
+    }
+}

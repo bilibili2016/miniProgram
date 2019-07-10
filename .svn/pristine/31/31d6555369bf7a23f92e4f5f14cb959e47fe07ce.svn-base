@@ -1,0 +1,7 @@
+<!-- components/common/noData/noData.wxml -->
+<view class='success'>
+  <image src='{{imgUrl}}' mode='widthFix'></image>
+  <view wx:if="{{isShowTitle}}" class='title'>{{title}}</view>
+  <text class='desc'>{{dataDesc}}</text>
+  <view class="btn" data-url="{{btnUrl}}" bindtap="handleLink">{{btnText}}</view>
+</view>

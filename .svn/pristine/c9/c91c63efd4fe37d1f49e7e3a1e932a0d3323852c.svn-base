@@ -1,0 +1,77 @@
+/* miniprogram/pages/user/beTeacher/topic/topic.wxss */
+.setTopic {
+    padding: 32rpx 32rpx;
+    background-color: #F5F5F5;
+}
+
+.setTopic .item {
+    width: 685rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    margin-bottom: 40rpx;
+    box-sizing: border-box;
+
+}
+
+.setTopic .item .name {
+    font-size: 30rpx;
+    color: #303030;
+}
+
+.setTopic .item .con {
+    position: relative;
+    margin-bottom: 30rpx;
+}
+
+.setTopic .item .con input {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 26rpx;
+    color: #303030;
+    border-bottom: 1rpx solid #E0E0E1;
+}
+
+.setTopic .item .con textarea {
+    min-height: 150rpx;
+    font-size: 26rpx;
+    color: #303030;
+    margin-top: 30rpx;
+}
+
+.setTopic .item .con .rest {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 24rpx;
+    color: #ADADAD;
+}
+
+
+.btnCon {
+    width: 100%;
+    /* width: 685rpx; */
+    /* margin: 0 auto; */
+    /* position: absolute;
+  bottom: 0;
+  left: 30rpx; */
+}
+
+.btnCon .desc {
+    text-align: center;
+    font-size: 24rpx;
+    color: #87868B;
+    margin-bottom: 30rpx;
+}
+
+.btnCon .btn {
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    background-color: #6317A5;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    border-radius: 10rpx;
+}

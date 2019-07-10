@@ -1,0 +1,372 @@
+page {
+    min-height: 100%;
+    background-color: #f5f5f5;
+}
+
+.mine {
+    padding-top: 40rpx;
+}
+
+.actvList {
+    position: relative;
+}
+
+.actvList,
+.appoList .item,
+.teacherList .item {
+    position: relative;
+    width: 686rpx;
+    margin: 0 auto 40rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.actvList .desc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 84rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    border-radius: 20rpx 0 20rpx 0;
+    background-color: #FE7918;
+    font-size: 24rpx;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+
+.actvList .cover {
+    width: 100%;
+    height: 330rpx;
+}
+
+.actvList .word {
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+}
+
+.actvList .word image {
+    width: 20rpx;
+    height: 24rpx;
+    margin-right: 10rpx;
+}
+
+.actvList .word .people {
+    color: #303030;
+}
+
+.actvList .word .text {
+    color: #87868B;
+}
+
+.actvList .time {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    line-height: 48rpx;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 31rpx;
+    font-size: 0;
+    color: #fff;
+    padding: 5rpx 12rpx;
+}
+
+.actvList .time .icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.actvList .time .clock {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 24rpx;
+}
+
+.appoList .item,
+.teacherList .item {
+    padding: 30rpx 25rpx;
+    padding-bottom: 0;
+    box-sizing: border-box;
+}
+
+.appoList .item .info .fl {
+    width: 90rpx
+}
+
+.appoList .item .info .fr {
+    width: 500rpx
+}
+
+
+.appoList .item .info .headImg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+}
+
+.appoList .item .info .name {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 30rpx;
+    color: #303030;
+    font-weight: 500;
+}
+
+/* .appoList .item .info .flag {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5rpx 7rpx;
+    background-color: #FF4A3A;
+    color: #fff;
+    font-size: 22rpx;
+    margin-left: 10rpx;
+    border-radius: 10rpx;
+} */
+
+.appoList .item .info .status {
+    position: absolute;
+    top: 40rpx;
+    right: 24rpx;
+    font-size: 26rpx;
+}
+
+.confirming {
+    color: #FF4A3A;
+}
+
+.confirmed {
+    color: #23C27D;
+}
+
+.cancel {
+    color: #87868B
+}
+
+.finished {
+    color: #87868B;
+}
+
+.appoList .item .info .desc {
+    font-size: 24rpx;
+    color: #87868B;
+    margin-top: 10rpx;
+}
+
+.appoList .item .log {
+    margin-top: 20rpx;
+    font-size: 26rpx;
+    color: #303030;
+    padding-bottom: 30rpx;
+    box-sizing: border-box;
+}
+
+.appoList .item .log view {
+    margin-bottom: 20rpx;
+}
+
+.appoList .item .log view:last-child {
+    margin-bottom: 0
+}
+
+.appoList .item .log view image {
+    display: inline-block;
+    width: 22rpx;
+    height: 20rpx;
+    margin-right: 12rpx;
+}
+
+.appoList .item .operate {
+    position: relative;
+    height: 117rpx;
+    line-height: 117rpx;
+    border-top: 1rpx solid #E0E0E1;
+}
+
+.appoList .item .operate .time {
+    /* width: 100rpx; */
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 26rpx;
+    color: #87868B;
+    /* margin-top: 30rpx; */
+    padding-left: 40rpx;
+
+}
+
+.appoList .item .operate .time text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10rpx;
+}
+
+.teacherList .item .operate .address {
+    position: relative;
+    font-size: 26rpx;
+    color: #87868B;
+    margin-top: 30rpx;
+    padding-left: 40rpx;
+}
+
+.appoList .item .operate .time van-icon {
+    position: absolute;
+    top: 3rpx;
+    left: 0;
+    font-size: 32rpx;
+}
+
+.teacherList .item .operate .address van-icon {
+    position: absolute;
+    top: 3rpx;
+    left: 0;
+    font-size: 32rpx;
+}
+
+.appoList .item .operate .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    margin-bottom: 10rpx;
+}
+
+.appoList .item .operate .btn view {
+    display: inline-block;
+    vertical-align: middle;
+    width: 120rpx;
+    height: 52rpx;
+    text-align: center;
+    line-height: 52rpx;
+    margin-right: 15rpx;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+}
+
+.appoList .item .operate .btn view:last-child {
+    margin-right: 0
+}
+
+.appoList .item .operate .btn view.cancle {
+    background-color: #fff;
+    border: 1rpx solid #9B9B9B;
+    color: #5E5E5E;
+}
+
+.appoList .item .operate .btn view.confirmBtn {
+    background-color: #6317A5;
+    color: #fff;
+    margin-left: 20rpx;
+}
+
+.appoList .item .operate .btn view.pay {
+    background-color: #6317A5;
+    color: #fff;
+}
+
+
+.teacherList {
+    padding-top: 40rpx;
+}
+
+.teacherList .item {
+    padding: 35rpx 30rpx;
+}
+
+.teacherList .item .name {
+    font-size: 32rpx;
+    color: #303030;
+    font-weight: 500;
+}
+
+.teacherList .status {
+    position: absolute;
+    top: 46rpx;
+    right: 30rpx;
+    font-size: 26rpx;
+}
+
+.teacherList .confirming {
+    color: #FF4A3A;
+}
+
+.teacherList .confirmed {
+    color: #23C27D;
+}
+
+.teacherList .cancel {
+    color: #87868B;
+}
+
+.teacherList .log {
+    font-size: 26rpx;
+    color: #303030;
+    margin: 15rpx 0 30rpx 0;
+
+}
+
+.teacherList .log image {
+    display: inline-block;
+    vertical-align: middle;
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 10rpx;
+}
+
+.teacherList .log text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.teacherList .operate {
+    position: relative;
+}
+
+.teacherList .operate .time,
+.teacherList .operate .address {
+    font-size: 26rpx;
+    color: #87868B;
+}
+
+.teacherList .operate .time {
+    margin-bottom: 27rpx;
+}
+
+.teacherList .btn {
+    /* position: absolute;
+    right: 0;
+    bottom: 0; */
+    text-align: right
+}
+
+.teacherList .btn view {
+    display: inline-block;
+    vertical-align: middle;
+    width: 126rpx;
+    height: 54rpx;
+    text-align: center;
+    line-height: 54rpx;
+    font-size: 24rpx;
+    border: 1rpx solid #5E5E5E;
+    margin-left: 20rpx;
+    border-radius: 31rpx;
+}
+
+.teacherList .cancel {
+    border-color: #5E5E5E;
+    color: #5E5E5E;
+}
+
+.teacherList .confirmBtn {
+    background-color: #6317A5;
+    color: #fff;
+}

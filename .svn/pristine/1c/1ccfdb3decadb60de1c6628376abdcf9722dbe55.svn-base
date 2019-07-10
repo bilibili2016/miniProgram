@@ -1,0 +1,18 @@
+<view class="setTopic">
+  <view class="list">
+    <view class="item" wx:for="{{emptyList}}" wx:key="{{index}}">
+      <view>
+        <text class="fl">话题1</text>
+        <input type="text" value="{{item.title}}" />
+      </view>
+      <view>
+        <text class="fl">话题描述</text>
+        <textarea name="" id="" cols="30" rows="10" value="{{item.content}}"></textarea>
+      </view>
+    </view>
+  </view>
+  <view class="btnCon">
+     <view class="desc">您最多可设置3个话题进行展示</view>
+     <view class="btn">保存</view>
+   </view>
+</view>

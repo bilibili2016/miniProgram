@@ -1,0 +1,4 @@
+/* pages/home/index/index.wxss */
+.slideImage {
+    width: 100%;
+}

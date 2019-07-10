@@ -1,0 +1,21 @@
+<!-- 标签设置 -->
+<view class="user">
+  <view class="bottom">
+    <view class="list">
+      <view class="inner">
+        <view class="item" wx:for="{{itemList}}" wx:key="{{index}}">
+          <van-icon class="leftIcon" name="notes-o" />
+          <text>{{item.tag_name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="rightIcon" data-url="/pages/user/beTeacher/label/list/list" bindtap="handleLink">
+      <text>设置我的标签</text>
+      <van-icon class="icon" name="arrow" />
+    </view>
+    <view class="btnCon">
+      <view class="desc">标签设置可帮助用户更好的找到</view>
+      <view class="btn">保存</view>
+    </view>
+  </view>
+</view>

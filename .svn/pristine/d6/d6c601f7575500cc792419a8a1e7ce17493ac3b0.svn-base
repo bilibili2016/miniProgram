@@ -1,0 +1,160 @@
+/* pages/home/activity/home/home.wxss */
+.container{
+width: 100%;
+
+}
+
+.flex-wrp{
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-around;
+}
+.flex-item{
+  font-size: 32rpx;
+  line-height: 88rpx;
+}
+.checked{
+  color: #6317A5;
+}
+.banner{
+  width: 100%;
+}
+.bannerImg{
+  width: 100%;
+}
+.content{
+  width: 100%;
+}
+.content .top{
+  width: 686rpx;
+  margin: 0 auto;
+  margin-top: -120rpx;
+  background-color: #fff;
+  padding: 40rpx 45rpx;
+  border-radius: 20rpx;
+  box-shadow:0px 2rpx 21rpx 0px rgba(182,140,140,0.21);
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+}
+.content .top .left,.content .top .right{
+  display: inline-block;
+  line-height: 58rpx;
+  font-size: 28rpx;
+  vertical-align: middle;
+}
+.content .top .right{
+  margin-left: 100rpx;
+}
+.content .top image{
+  width: 58rpx;
+  height: 58rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+.top button{
+  width:600rpx;
+  height:82rpx;
+  background:rgba(246,70,61,1);
+  box-shadow:0px 4rpx 10rpx 0rpx rgba(231,71,63,0.4);
+  border-radius:49rpx;
+  margin: 0 auto;
+  font-size: 32rpx;
+  color: #fff;
+  margin-top: 40rpx;
+}
+.inner{
+  text-align: center;
+}
+.inner .text{
+  position: relative;
+  font-size: 30rpx;
+  color: #303030;
+  width:545rpx;
+  margin: 0 auto; 
+  margin-top: 60rpx;
+  text-indent: 2em;
+}
+.inner view.text::before{
+  width: 118rpx;
+  height: 50rpx;
+  content: "";
+  display: block;
+  position: absolute;
+  top: -30rpx;
+  left: -50rpx;
+  background: url('https://h5-image.1911edu.com/mini-lineIcon.png') no-repeat;
+  background-size: 118rpx 50rpx;
+}
+.inner view.text::after{
+   width: 118rpx;
+  height: 50rpx;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -30rpx;
+  right: -50rpx;
+  background: url('https://h5-image.1911edu.com/mini-lineIcon.png') no-repeat;
+  background-size: 118rpx 50rpx;
+  transform: rotate(180deg)
+}
+.inner .title{
+  width: auto;
+  display: inline-block;
+  position: relative;
+  font-size: 48rpx;
+  color:#303030;
+  text-align: center;
+  margin: 80rpx auto 45rpx;
+  font-weight: 600;
+  z-index: 10;
+}
+.inner .title::before{
+  position: absolute;
+  left: -20rpx;
+  top: -10rpx;
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: url('https://h5-image.1911edu.com/mini-titleLeft.png') no-repeat;
+  background-size: 40rpx 40rpx;
+  z-index: -1;
+}
+.inner .title::after{
+  width: 26rpx;
+  height: 54rpx;
+  position: absolute;
+  right: -25rpx;
+  bottom: 10rpx;
+  content: "";
+  background: url('https://h5-image.1911edu.com/mini-titleRight.png') no-repeat;
+  background-size: 26rpx 54rpx;
+}
+.inner .desc{
+  font-size: 36rpx;
+  color: #E7473F;
+  line-height: 52rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.inner .teacher{
+width: 100%;
+}
+.question{
+  /* text-align: left; */
+}
+.item{
+  padding: 0 33rpx;
+  margin-bottom: 40rpx;
+  text-align: left;
+}
+.item .itemIndex{
+  font-size: 34rpx;
+  color: #303030;
+  font-weight: bold;
+}
+.item .itemText{
+  font-size: 28rpx;
+  color: #757478;
+  margin-top: 20rpx;
+}

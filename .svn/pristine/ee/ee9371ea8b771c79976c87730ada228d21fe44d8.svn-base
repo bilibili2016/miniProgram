@@ -1,0 +1,23 @@
+/* pages/home/activity/success/success.wxss */
+.success{
+  width: 100%;
+  text-align: center;
+}
+.success image{
+  width: 188rpx;
+  margin-top: 135rpx;
+}
+.title{
+  font-size: 50rpx;
+  color: #303030;
+  font-weight: bold;
+  margin: 50rpx auto 30rpx;
+}
+.desc{
+  display: inline-block;
+  width: 530rpx;
+  margin: 0 auto;
+  font-size: 30rpx;
+  color: #87868B;
+  line-height: 42rpx;
+}
